@@ -47,6 +47,7 @@ body{
 
 		.img-rabbit{
 			margin: 0 -15px;
+			overflow: hidden;
 		}
 
 		.btn-group-vertical{
