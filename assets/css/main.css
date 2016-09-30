@@ -41,13 +41,12 @@ body{
 {
 		.main{
 			height: 100vh;
-			/*max-height: 150vh;*/
-			overflow: visible;
+			max-height: 150vh;
+			overflow: hidden;
 		}
 
 		.img-rabbit{
 			margin: 0 -15px;
-			overflow: hidden;
 		}
 
 		.btn-group-vertical{
