@@ -41,8 +41,8 @@ body{
 {
 		.main{
 			height: 100vh;
-			max-height: 150vh;
-			overflow: hidden;
+			/*max-height: 150vh;*/
+			overflow: visible;
 		}
 
 		.img-rabbit{
