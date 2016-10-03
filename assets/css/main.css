@@ -42,7 +42,7 @@ body{
 		.main{
 			height: 100vh;
 			max-height: 150vh;
-			overflow: visible;
+			overflow: hidden;
 		}
 
 		.img-rabbit{
@@ -377,10 +377,10 @@ figure img {
 	transition: transform 0.4s;
 }
 figure:hover{
-	-webkit-transform: translate(0px, -175px);
-	-moz-transform: translate(0px, -175px);
-	-ms-transform: translate(0px, -175px);
-	transform: translate(0px, -175px);
+	-webkit-transform: translate(0px, -200px);
+	-moz-transform: translate(0px, -200px);
+	-ms-transform: translate(0px, -200px);
+	transform: translate(0px, -200px);
 }
 
 figcaption a {
