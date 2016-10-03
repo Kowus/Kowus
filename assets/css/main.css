@@ -137,7 +137,7 @@ footer{
 
 .form-control{
 	margin-top: 30px;
-	width: 75%;
+	width: 85%;
 
 }
 
@@ -319,9 +319,7 @@ footer{
 		height: auto;
 	}
 }
-.main2{
-	height: 97vh;
-}
+
 figure{
 	/*border-top: 15px white solid;*/
 	background-color: black;
@@ -329,38 +327,47 @@ figure{
 	border-color: white; 
 }
 figcaption{
-	height: 100px;
+	height: 200px;
+	width: 100%;
 	background-color: black;
 	margin-left: 10px;
 	margin-bottom: 20px;
 	text-indent: 10px;
 	padding-bottom: 20px;
-	padding-left: 20px;
+	/*padding-left: 20px;*/
 }
 figcaption span {
-	position: absolute;
-	margin-top: 0px;
+	font-weight: 500;
 	margin-left:20px;
-	bottom: 74px;
+	position: relative;
+	margin-top: 0px;	
+	bottom: 12px;
+	color: rgba(255, 105, 100, 1);
+	letter-spacing: .1em;
+	font-style: italic;
 }
 figcaption span:before{
-	content: ' by ';	
+	content: ' for ';	
 }
 figcaption h3 {
 	line-height: 1em;
-	margin: 1px 0px 8px 0px;
+	font-weight: bold;
+	margin: 20px 0px 12px 0px;
 	padding: 0;
 	padding-top: 1px;
 	color: #fff;
+	letter-spacing: 0.1em;
 }
 figcaption a {
-	font-family: Times;
+	/*font-family: Times;*/
 	text-indent: 0px;
 	text-align: center;
-	padding: 2px 10px 2px 10px;
+	padding: 2px 12px 2px 12px;
 	display: inline-block;
 	color: #fff;
-	font-size: 16px;
+	font-size: 18px;
+	font-weight: 500;
+	/*font-style: italic;*/
 }
 
 figure img {
@@ -370,17 +377,16 @@ figure img {
 	transition: transform 0.4s;
 }
 figure:hover{
-	
-	-webkit-transform: translate(0px, -50px);
-	-moz-transform: translate(0px, -50px);
-	-ms-transform: translate(0px, -50px);
-	transform: translate(0px, -50px);
+	-webkit-transform: translate(0px, -175px);
+	-moz-transform: translate(0px, -175px);
+	-ms-transform: translate(0px, -175px);
+	transform: translate(0px, -175px);
 }
 
 figcaption a {
-	position: absolute;
-	bottom: 81px;
-	right: 20px;
+	position: relative;
+	bottom: 26px;
+	left: 220px;
 }
 .button{
 	background: transparent;
@@ -389,4 +395,12 @@ figcaption a {
 .button:hover {
     background: white;
     color: #000;
+}
+.form-control:focus{
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.8);
+}
+.formbg{
+	background-image: url(../images/about.jpg);
+	background-attachment: fixed;
 }
