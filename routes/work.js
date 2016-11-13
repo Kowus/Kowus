@@ -8,8 +8,8 @@ router.get('/', function (req, res, next) {
             title: "Work",
             marker: "w",
             next: "About",
-            contact: "Contact Me"
-
+            contact: "Contact Me",
+stat:''
         });
 });
 
