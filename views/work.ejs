@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
     <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
     <link href="/stylesheets/main.css" rel="stylesheet">
-    <link rel="icon" href="/images/logo.png">
+    <link rel="icon" href="/images/logo1.png">
 
     <!--angular js-->
 
@@ -53,29 +53,35 @@
         </div>
 
         <div class="col-md-6">
-            <a href="/about" class="btn btn-rabbit back"> <i class="fa fa-angle-left"
-                                                             aria-hidden="true"></i> <%= next %> </a> <a
-                    style="float: right;" href="/" class="btn btn-rabbit forward"> Home<i class="fa fa-home"
-                                                                                          aria-hidden="true"></i></a>
-            <!--<a href="/" class="btn btn-rabbit back backWork">Home</a>-->
+            <a href="/about" class="btn btn-rabbit back">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <%= next %>
+            </a>
+            <a style="float: right;" href="/" class="btn btn-rabbit forward">
+                Home
+                <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
+
             <div id="watermark">
                 <h2 class="page-title" text-center><%= title %></h2>
                 <div class="marker"><%= marker %></div>
             </div>
+
+            <!--Contact Me-->
             <div style="margin-bottom: 50px; width: 96%;">
 
                 <h4 style="background-color: #0f0f0f; padding: 20px;  margin-bottom: 0;" id="contact" class="ran"><a
                             id="contactlink" class="ram" href="#contform" data-toggle="collapse"><%= contact %></a></h4>
                 <div id="contform" class="collapse">
-                    <% include contact.ejs %>
+                    <% include templates/contact.ejs %>
                 </div>
             </div>
             <div>
-            <p id="statusMessage" class="alert alert-success" style="width:96%; text-align: center;">
-                <span id="messCon"><%= stat %></span>
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            </p></div>
-            <!--<p id="some"></p>-->
+                <p id="statusMessage" class="alert alert-success" style="width:96%; text-align: center;">
+                    <span id="messCon"><%= stat %></span>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                </p></div>
+            <p id="some"></p>
 
         </div>
         <br>

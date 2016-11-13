@@ -23,7 +23,8 @@ $(document).ready(function () {
     });
 
 
-    $('.main').height($(window).height());
+    // $('.main').height($(window).height());
+
     $('#404Page').height($(window).height());
 
     $('#contactlink').click(function () {
@@ -39,8 +40,12 @@ $(document).ready(function () {
         } else /*if(tt == 'Message Not Sent')*/{
             $('#statusMessage').show(400, 'linear').delay(5000).removeClass('alert-success').addClass('alert-danger').hide('slow', 'linear');
         }
-        // $('#some').text($('#statusMessage').text());
+
     }
+
+
+
+
 
     ness();
 

@@ -12,6 +12,7 @@
 
 
     var pictureInfo = [
+
         {
             name: 'Life In A Pixel',
             description: 'www.oususvchi.com',
@@ -23,7 +24,6 @@
             image: '/images/home.jpg',
             url: 'http://www.oususvchi.com'
         }
-
     ];
     /*
     var socialLinks = [
