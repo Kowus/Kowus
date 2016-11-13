@@ -13,8 +13,26 @@
     "express": "~4.14.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "quickemailverification": "^1.0.0"
-  },
+    "quickemailverification": "~1.0.0",
+    "mailgun-js":"~0.7.13"
+  },"repository": {
+  "type": "git",
+  "url": "git+https://github.com/Kowus/kowus.github.io.git"
+},
+  "keywords": [
+    "Barnabas",
+    "Nomo",
+    "Mawukley",
+    "Kowus",
+    "Web",
+    "Developer",
+    "Windows",
+    "Developer",
+    "Volunteer",
+    "Change",
+    "Africa",
+    "Ghana"
+  ],
   "author": "Barnabas Mawkuley Nomo (Kowus)",
   "license": "ISC"
 }
