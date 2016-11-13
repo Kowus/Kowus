@@ -37,8 +37,8 @@
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="220">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -708,7 +708,7 @@
       <workItem from="1478981577763" duration="527000" />
       <workItem from="1478992886902" duration="626000" />
       <workItem from="1479054657506" duration="1939000" />
-      <workItem from="1479056978503" duration="10322000" />
+      <workItem from="1479056978503" duration="10975000" />
     </task>
     <task id="LOCAL-00001" summary="Resolved Email Verification">
       <created>1479056183646</created>
@@ -752,11 +752,18 @@
       <option name="project" value="LOCAL" />
       <updated>1479072684695</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added google Analytics">
+      <created>1479073760534</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1479073760534</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59244000" />
+    <option name="totallyTimeSpent" value="59897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -832,7 +839,8 @@
     <MESSAGE value="Cleaned Up Activity List" />
     <MESSAGE value="New looks" />
     <MESSAGE value="added Mailgun API" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Mailgun API" />
+    <MESSAGE value="added google Analytics" />
+    <option name="LAST_COMMIT_MESSAGE" value="added google Analytics" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1204,8 +1212,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        <state relative-caret-position="220">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding />
         </state>
       </provider>
