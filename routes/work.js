@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
             marker: "w",
             next: "About",
             contact: "Contact Me"
+
         });
 });
 
