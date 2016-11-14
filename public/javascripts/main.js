@@ -1,10 +1,13 @@
 $(document).ready(function () {
     $('#statusMessage').hide();
+    var st = $('#some').val();
+    $('#some').hide();
+
     $("#owl-demo").owlCarousel({
 
         // navigation : true, // Show next and prev buttons
-        slideSpeed: 300,
-        paginationSpeed: 400,
+        slideSpeed: 2000,
+        paginationSpeed: 2000,
         singleItem: true,
         autoplay: 3000,
         loop: true,
@@ -35,16 +38,19 @@ $(document).ready(function () {
 
         if (tt == "Message Sent") {
             $('#statusMessage').show(400, 'linear').delay(5000).removeClass('alert-danger').addClass('alert-success').hide('slow', 'linear');
-        }else if(tt == ''){
+        } else if (tt == '') {
             $('#statusMessage').hide();
         } else /*if(tt == 'Message Not Sent')*/{
             $('#statusMessage').show(400, 'linear').delay(5000).removeClass('alert-success').addClass('alert-danger').hide('slow', 'linear');
         }
 
+        if (st == 1)
+            $('#mail').addClass('text-danger');
+        else
+            $('#mail').removeClass('text-danger');
+
+
     }
-
-
-
 
 
     ness();

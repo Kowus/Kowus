@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/about', about);
 app.use('/work', work);
-//app.use('/contact', contact);
+
 
 
 app.post('/myapi', function (req, res) {
@@ -69,6 +69,7 @@ app.post('/myapi', function (req, res) {
     quickemailverification.verify(bodyJson.mail, function (err, response) {
         // console.log("Error: " + err);
         var smess = 0;
+        var mstus = 0;
 
         if (err)
             smess = err;
@@ -79,22 +80,31 @@ app.post('/myapi', function (req, res) {
                     console.log(body);
                 });
 
+
             }
-            else
-                smess = 'Message not sent invalid Email:'+bodyJson.mail;
+            else {
+                smess = 'Message not sent invalid Email:' + bodyJson.mail;
+                mstus = 1;
+            }
         }
+        var billy = bodyJson;
 
 
-        // console.log(bodyJson);
+
         res.render('work', {
             title: "Work",
             marker: "w",
             next: "About",
             contact: "Contact Me",
-            stat: smess
+            stat: smess,
+            name: billy.name,
+            email: billy.mail,
+            message: billy.mess,
+            mstus: mstus
         });
 
-        console.log(smess)
+        console.log(smess);
+        console.log(mstus);
     });
 
 

@@ -22,7 +22,12 @@
             name: 'Hour Of Code',
             description: 'Some Description',
             image: '/images/home.jpg',
-            url: 'http://www.oususvchi.com'
+            url: '#'
+        },{
+            name: 'Kodeforidua',
+            description: 'Some Description',
+            image: '/images/karate-pose.jpg',
+            url: '#'
         }
     ];
     /*
