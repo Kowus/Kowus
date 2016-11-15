@@ -43,8 +43,8 @@
                     <!--img src="/images/work.jpg"-->
                     <img id="workPic" ng-src="{{pic.image}}">
                     <figcaption>
-                        <h3>{{pic.name}}</h3>
-                        <span id="picDes"><i class="fa fa-globe"></i> {{pic.description}}</span>
+                        <h3 ng-bind="pic.name"></h3>
+                        <span id="picDes" ng-bind="pic.description"></span>
                         <a ng-href="{{pic.url}}" target="_blank" class="button">Take a look</a>
                     </figcaption>
                 </figure>
