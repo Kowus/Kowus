@@ -1,121 +1,126 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="work">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!--<meta http-equiv="refresh" content="5">-->
+        <!--<meta http-equiv="refresh" content="5">-->
 
-    <title><%= title %></title>
+        <title><%= title %></title>
 
-    <!--css here-->
+        <!--css here-->
 
-    <link rel="stylesheet" type="text/css" href="">
-    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
-    <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
-    <link href="/stylesheets/main.css" rel="stylesheet">
-    <link rel="icon" href="/images/logo1.png">
-
-    <!--angular js-->
-
-    <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
-    <script type="text/javascript" src="/javascripts/app/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="">
+        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+        <link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+        <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
+        <link href="/stylesheets/main.css" rel="stylesheet">
+        <link rel="icon" href="/images/logo1.png">
 
 
-</head>
+    </head>
 
-<body ng-controller="PicController as pictrl">
-<a name="top"></a>
-<div class="container main mainer">
-    <div class="row port cs-style-3">
-        <div class="col-md-6">
-            <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit">
+    <body ng-controller="PicController as pictrl">
+        <a name="top"></a>
+        <div class="container main mainer">
+            <div class="row port cs-style-3">
+                <div class="col-md-6">
+                    <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit">
 
-                <figure ng-repeat="pic in pictrl.pics">
-                    <!--img src="/images/work.jpg"-->
-                    <img id="workPic" ng-src="{{pic.image}}">
-                    <figcaption>
-                        <h3 ng-bind="pic.name"></h3>
-                        <span id="picDes" ng-bind="pic.description"></span>
-                        <a ng-href="{{pic.url}}" target="_blank" class="button">Take a look</a>
-                    </figcaption>
-                </figure>
+                        <figure ng-repeat="pic in pictrl.pics">
+                            <!--img src="/images/work.jpg"-->
+                            <img id="workPic" ng-src="{{pic.image}}">
+                            <figcaption>
+                                <h3 ng-bind="pic.name"></h3>
+                                <span id="picDes" ng-bind="pic.description"></span>
+                                <a ng-href="{{pic.url}}" target="_blank" class="button">Take a look</a>
+                            </figcaption>
+                        </figure>
 
 
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <a href="/about" class="btn btn-rabbit back">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
-                <%= next %>
-            </a>
-            <a style="float: right;" href="/" class="btn btn-rabbit forward">
-                Home
-                <i class="fa fa-home" aria-hidden="true"></i>
-            </a>
-
-            <div id="watermark">
-                <h2 class="page-title" text-center><%= title %></h2>
-                <div class="marker"><%= marker %></div>
-            </div>
-
-            <!--Contact Me-->
-            <div style="margin-bottom: 50px; width: 96%;">
-
-                <h4 style="background-color: #0f0f0f; padding: 20px;  margin-bottom: 0;" id="contact" class="ran"><a
-                            id="contactlink" class="ram" href="#contform" data-toggle="collapse"><%= contact %></a></h4>
-                <div id="contform" class="collapse">
-                    <% include templates/contact.ejs %>
+                    </div>
                 </div>
+
+                <div class="col-md-6">
+                    <a href="/about" class="btn btn-rabbit back">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <%= next %>
+                    </a>
+                    <a style="float: right;" href="/" class="btn btn-rabbit forward">
+                        Home
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+
+                    <div id="watermark">
+                        <h2 class="page-title" text-center><%= title %></h2>
+                        <div class="marker"><%= marker %></div>
+                    </div>
+
+                    <!--Contact Me-->
+                    <div style="margin-bottom: 50px; width: 96%;">
+
+                        <h4 style="background-color: #0f0f0f; padding: 20px;  margin-bottom: 0;" id="contact" class="ran"><a
+                                    id="contactlink" class="ram" href="#contform" data-toggle="collapse"><%= contact %></a></h4>
+                        <div id="contform" class="collapse">
+                            <% include templates/contact.ejs %>
+                        </div>
+                    </div>
+                    <div>
+                        <p id="statusMessage" class="alert alert-success" style="width:96%; text-align: center;">
+                            <span id="messCon"><%= stat %></span>
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        </p></div>
+                    <p id="some"><%= mstus %></p>
+
+                </div>
+                <br>
+
+                <br>
+                <% include templates/social.ejs %>
             </div>
-            <div>
-                <p id="statusMessage" class="alert alert-success" style="width:96%; text-align: center;">
-                    <span id="messCon"><%= stat %></span>
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                </p></div>
-            <p id="some"><%= mstus %></p>
+            <div id="footre">
+                <% include templates/footer.ejs %>
+            </div>
 
         </div>
-        <br>
-
-        <br>
-        <% include templates/social.ejs %>
-    </div>
-    <div id="footre">
-        <% include templates/footer.ejs %>
-    </div>
-
-</div>
 
 
-<script src="/javascripts/jquery-3.1.0.min.js"></script>
-<script src="/javascripts/bootstrap.min.js"></script>
-<script src="/javascripts/owl.carousel.min.js"></script>
-<script src="/javascripts/main.js"></script>
+        <script src="/javascripts/jquery-3.1.0.min.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <script src="/javascripts/owl.carousel.min.js"></script>
+        <script src="/javascripts/main.js"></script>
+        <!--angular js-->
+
+        <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
+        <script type="text/javascript" src="/javascripts/app/app.js"></script>
 
 
+        <!--Google Analytics-->
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-<!--Google Analytics-->
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-87349035-1', 'auto');
-    ga('send', 'pageview');
-</script>
+            ga('create', 'UA-87349035-1', 'auto');
+            ga('send', 'pageview');
+        </script>
 
 
-</body>
+    </body>
 
 </html>
