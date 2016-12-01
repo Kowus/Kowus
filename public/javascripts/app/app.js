@@ -21,7 +21,7 @@
         }, {
             name: 'Hour Of Code',
             description: 'Some Description',
-            image: '/images/home.jpg',
+            image: '/images/hourOFCode15.jpg',
             url: '#'
         },{
             name: 'Kodeforidua',
