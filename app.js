@@ -93,7 +93,7 @@ app.post('/myapi', function (req, res) {
 
         res.render('work', {
             title: "Work",
-            marker: "w",
+            marker: "Barnabas Nomo",
             next: "About",
             contact: "Contact Me",
             stat: smess,

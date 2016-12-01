@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
     res.render('work',
         {
             title: "Work",
-            marker: "w",
+            marker: "Barnabas Nomo",
             next: "About",
             contact: "Contact Me",
             stat: '',
