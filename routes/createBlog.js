@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var fs = require('fs');
+// var fs = require('fs');
 var Blog = require('./blog.model');
 
 
