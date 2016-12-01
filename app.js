@@ -4,12 +4,14 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var mongoose
+
 
 
 var index = require('./routes/index');
 var about = require('./routes/about');
 var work = require('./routes/work');
+var blog = require('./routes/blog');
+var createBlog = require('./routes/createBlog');
 
 var date = new Date();
 
@@ -50,6 +52,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/about', about);
 app.use('/work', work);
+app.use('/blog', blog);
+app.use('/add/blog', createBlog);
 
 
 
