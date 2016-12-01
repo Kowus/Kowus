@@ -17,7 +17,7 @@
 			post.current = newBlog || 0;
 		};
 		
-		$http.get('http://localhost:3000/blog/J2nmnk209olq1RWfiq').success(function (data) {
+		$http.get('/blog/J2nmnk209olq1RWfiq').success(function (data) {
 			post.blogs = data;
 		});
 		
