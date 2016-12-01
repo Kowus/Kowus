@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title><%= title %></title>
+
+        <!--css here-->
+
+        <link rel="stylesheet" type="text/css" href="">
+        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+        <link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
+        <link href="/stylesheets/main.css" rel="stylesheet">
+        <link rel="icon" href="/images/logo1.png">
+
+
+    </head>
+    <body>
+        <a name="top"></a>
+        <div class="container main">
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-responsive img-rabbit" src="/images/beachboy.jpg">
+                </div>
+
+                <div class="col-md-6">
+                    <a href="/blog" class="btn btn-rabbit back"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog </a> <a
+                            style="float: right;" href="/" class="btn btn-rabbit forward"> <%= next %><i
+                                class="fa fa-home" aria-hidden="true"></i></a>
+                    <div id="watermark">
+                        <h2 class="page-title text-center"><%= title %></h2>
+                        <div class="marker"><%= marker %></div>
+                    </div>
+                    <form class="form-group">
+                        <fieldset>
+                            <input class="form-control" placeholder="title" name="title">
+                        </fieldset>
+                        <fieldset>
+                            <p><input class="form-control" placeholder="description" name="description"></p>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <select required name="categories">
+                                <option value="">Select A Category</option>
+                                <option value="society">Society</option>
+                                <option value="technology">Technology</option>
+                            </select>
+                            <textarea class="form-control" placeholder="content" name="content" rows="19"></textarea>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <% include templates/footer.ejs %>
+        </div>
+
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+        <script src="/javascripts/jquery-3.1.0.min.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <script src="/javascripts/owl.carousel.min.js"></script>
+        <script src="/javascripts/main.js"></script>
+
+
+    </body>
+</html>

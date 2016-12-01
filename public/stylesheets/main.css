@@ -300,10 +300,10 @@ a.ram {
 
 #watermark .marker {
     position: absolute;
-    font-size: 60px;
+    font-size: 40px;
     opacity: 0.1;
     font-family: "Josefin Sans";
-    text-transform: uppercase;
+    text-transform: capitalize;
     left: 0;
     top: -5px;
 }

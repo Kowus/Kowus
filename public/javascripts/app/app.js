@@ -25,6 +25,7 @@
 	
 	app.controller('CreateBlog',['$http', function ($http) {
 		// TODO: Make an http post of the blog Content
+		
 	}]);
 	
 	
