@@ -40,7 +40,7 @@
                 <div class="col-md-6">
                     <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit">
 
-                        <figure ng-repeat="pic in pictrl.pics">
+                        <figure ng-repeat="pic in pictrl.pics" style="object-fit: cover;">
                             <!--img src="/images/work.jpg"-->
                             <img id="workPic" ng-src="{{pic.image}}">
                             <figcaption>
@@ -59,7 +59,7 @@
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <%= next %>
                     </a>
-                    <a style="float: right;" href="/" class="btn btn-rabbit forward">
+                    <a style="float: right;" href="/blog" class="btn btn-rabbit forward">
                         Blog
                         <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                     </a>
