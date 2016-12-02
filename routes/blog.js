@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = require('./blog.model');
+var db = 'mongodb://localhost/blogDB';
 
+mongoose.connect(db);
 
 /* GET about page*/
 router.get('/', function (req, res, next) {

@@ -7,9 +7,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var mongoose = require('mongoose');
 
-var db = 'mongodb://localhost/blogDB';
 
-mongoose.connect(db);
 
 var index = require('./routes/index');
 var about = require('./routes/about');
