@@ -13,7 +13,7 @@ var index = require('./routes/index');
 var about = require('./routes/about');
 var work = require('./routes/work');
 var blog = require('./routes/blog');
-var createBlog = require('./routes/createBlog');
+// var createBlog = require('./routes/createBlog');
 
 var date = new Date();
 
@@ -55,7 +55,7 @@ app.use('/', index);
 app.use('/about', about);
 app.use('/work', work);
 app.use('/blog', blog);
-app.use('/add/blog', createBlog);
+// app.use('/add/blog', createBlog);
 
 
 
