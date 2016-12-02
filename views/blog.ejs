@@ -24,6 +24,7 @@
 
         <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
         <script type="text/javascript" src="/javascripts/app/app.js"></script>
+        <script type="text/javascript" src="/javascripts/app/angular-sanitize.js"></script>
 
         <style>
             h3 {
@@ -74,16 +75,22 @@
                             (blog))
 " ng-bind="blog.title"></a></li>
                     </ul>
-                    <p ng-bind="BlogCtrl.blogs[BlogCtrl.current].title"></p>
+                    <small id="watermark">
+                        <div class="marker" ng-bind="BlogCtrl.blogs[BlogCtrl.current].title">b</div>
+                    </small>
+
                 </div>
                 <div class="col-md-6">
                     <div>
                         <figure>
                             <div class="modal-header">
-                                <h3 ng-bind="BlogCtrl.blogs[BlogCtrl.current].title"></h3>
+                                <h3 ng-bind="BlogCtrl.blogs[BlogCtrl.current].title" style="text-transform: capitalize;"></h3>
                                 <p ng-bind="BlogCtrl.blogs[BlogCtrl.current].description" class="subtitle"></p>
+                                <small ng-bind="BlogCtrl.blogs[BlogCtrl.current].categories" style="text-transform: uppercase;"></small>
                             </div>
+                            <div style="margin-left: 20px;">
                             <p ng-bind-html="BlogCtrl.blogs[BlogCtrl.current].content" class="info"></p>
+                                </div>
                             <figcaption>
                                 <br>
                                 <i>Written By Barnabas Nomo on {{BlogCtrl.blogs[0].date}}</i>

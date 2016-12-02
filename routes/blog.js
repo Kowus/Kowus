@@ -5,7 +5,6 @@ var Blog = require('./blog.model');
 
 var db = 'mongodb://localhost/blogDB';
 
-mongoose.connect(db);
 
 
 /* GET about page*/

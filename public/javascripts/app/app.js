@@ -1,5 +1,5 @@
 (function () {
-	var app = angular.module('work', []);
+	var app = angular.module('work', ['ngSanitize']);
 	
 	
 	app.controller('PicController', function () {
@@ -13,8 +13,8 @@
 		post.blogs = [];
 		
 		post.current = 0;
-		post.setCurrent = function (newBlog) {
-			post.current = newBlog || 0;
+		post.setCurrent = function (nextBlog) {
+			post.current = nextBlog || 0;
 		};
 		
 		$http.get('/blog/J2nmnk209olq1RWfiq').success(function (data) {
@@ -23,8 +23,30 @@
 		
 	}]);
 	
-	app.controller('CreateBlog',['$http', function ($http) {
+	app.controller('CreateBlogController', ['$http', function ($http) {
 		// TODO: Make an http post of the blog Content
+		var posta = this;
+		
+		posta.bloga = {};
+		
+		
+		this.sendPosts = function () {
+			
+			/*
+			$http({
+				method:  'POST',
+				url:     'http://localhost:3000/add/blog/Nlw19i39Iw2',
+				data:    "help me',// Data should be JSON of key-value pairs
+				headers: { 'Content-Type': 'application/x-www-form-url-encoded' }
+			});
+			*/
+			$http.post('http://localhost:3000/add/blog/Nlw19i39Iw2', posta.bloga).success(function (response) {
+				console.log(response);
+			}).error(function (response) {
+				console.log(response);
+			});
+			posta.bloga = {};
+		}
 		
 	}]);
 	
@@ -48,11 +70,6 @@
 			url:         '#'
 		}
 	];
-	/*
-	 var socialLinks = [
-	 {
-	 
-	 }
-	 ];*/
+	var blogG = [];
 	
 })();

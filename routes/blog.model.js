@@ -15,15 +15,21 @@ var BlogSchema = new Schema({
 	},
 	categories:{
 		type: String,
-		required: true,
+		required: true
 	},
 	content: {
 		type: String,
+		require: true
 	},
 	date: {
 		type: Date,
 		default: Date.now()
+	},
+	author: {
+		type: String,
+		default: 'Barnabas Nomo'
 	}
+	
 });
 
 module.exports = mongoose.model('blog', BlogSchema);

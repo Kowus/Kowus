@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="work">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,14 +18,25 @@
         <link href="/stylesheets/main.css" rel="stylesheet">
         <link rel="icon" href="/images/logo1.png">
 
+        <!--angular js-->
+
+        <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
+        <script type="text/javascript" src="/javascripts/app/app.js"></script>
+        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>-->
+        <script type="text/javascript" src="/javascripts/app/angular-sanitize.js"></script>
 
     </head>
-    <body>
+    <body ng-controller="CreateBlogController as BlogCreator">
         <a name="top"></a>
         <div class="container main">
             <div class="row">
-                <div class="col-md-6">
-                    <img class="img-responsive img-rabbit" src="/images/beachboy.jpg">
+                <div class="col-md-6" style="padding-top: 60px;">
+                    <div class="modal-header">
+                        <h3 ng-bind="BlogCreator.bloga.title" style="text-transform: capitalize; text-decoration: underline;"></h3>
+                        <p ng-bind="BlogCreator.bloga.description" class="subtitle"></p>
+                        <small ng-bind="BlogCreator.bloga.categories" style="text-transform: uppercase;"></small>
+                    </div>
+                    <div ng-bind-html="BlogCreator.bloga.content"></div>
                 </div>
 
                 <div class="col-md-6">
@@ -36,21 +47,24 @@
                         <h2 class="page-title text-center"><%= title %></h2>
                         <div class="marker"><%= marker %></div>
                     </div>
-                    <form class="form-group">
+                    <form method="post" class="form-group" name="blogForm" ng-model="blogForm" ng-submit="BlogCreator.sendPosts()">
                         <fieldset>
-                            <input class="form-control" placeholder="title" name="title">
+                            <input class="form-control" autofocus placeholder="title" name="title" ng-model="BlogCreator.bloga
+                            .title" required>
                         </fieldset>
                         <fieldset>
-                            <p><input class="form-control" placeholder="description" name="description"></p>
+                            <p><input class="form-control" placeholder="description" name="description" ng-model="BlogCreator.bloga.description" required></p>
                         </fieldset>
                         <fieldset class="form-group">
-                            <select required name="categories">
+                            <select name="categories" ng-model="BlogCreator.bloga.categories" required>
                                 <option value="">Select A Category</option>
                                 <option value="society">Society</option>
+                                <option value="muse">Muse</option>
                                 <option value="technology">Technology</option>
                             </select>
-                            <textarea class="form-control" placeholder="content" name="content" rows="19"></textarea>
-                        </fieldset>
+                            <textarea class="form-control" placeholder="content" name="content" rows="15" ng-model="BlogCreator.bloga.content" required></textarea>
+</fieldset>
+                        <button type="submit" class="btn btn-rabbit">Submit</button>
                     </form>
 
                 </div>

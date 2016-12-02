@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Node.js Globals" level="application" />
     <orderEntry type="library" name="node-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angular.min.js" level="application" />
   </component>
 </module>
