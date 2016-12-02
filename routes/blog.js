@@ -3,9 +3,6 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = require('./blog.model');
 
-var db = 'mongodb://localhost/blogDB';
-
-
 
 /* GET about page*/
 router.get('/', function (req, res, next) {
