@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = require('./blog.model');
-var db = 'mongodb://localhost/blogdb';
-
+// var db = 'mongodb://localhost/blogdb';
+var db = 'mongodb://kowus:Sff8gh6J@ds050879.mlab.com:50879/blogdb'
 mongoose.connect(db);
 
 /* GET about page*/

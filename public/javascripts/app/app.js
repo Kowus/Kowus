@@ -40,7 +40,7 @@
 				headers: { 'Content-Type': 'application/x-www-form-url-encoded' }
 			});
 			*/
-			$http.post('http://localhost:3000/add/blog/Nlw19i39Iw2', posta.bloga).success(function (response) {
+			$http.post('/add/blog/Nlw19i39Iw2', posta.bloga).success(function (response) {
 				console.log(response);
 			}).error(function (response) {
 				console.log(response);
