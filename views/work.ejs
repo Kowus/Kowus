@@ -29,7 +29,7 @@
 
         <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
         <script type="text/javascript" src="/javascripts/app/app.js"></script>
-
+        <script type="text/javascript" src="/javascripts/app/angular-sanitize.js"></script>
 
     </head>
 
@@ -41,7 +41,6 @@
                     <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit">
 
                         <figure ng-repeat="pic in pictrl.pics" style="object-fit: cover;">
-                            <!--img src="/images/work.jpg"-->
                             <img id="workPic" ng-src="{{pic.image}}">
                             <figcaption>
                                 <h3 ng-bind="pic.name"></h3>
