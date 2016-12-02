@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
 			marker: "blog",
 			next:   "Home"
 		});
-	// console.log(__dirname);
+	
 	
 });
 
@@ -24,8 +24,6 @@ router.get('/', function (req, res, next) {
 router.post('/Nlw19i39Iw2', function (req, res) {
 	console.log(req.body);
 	
-	// var path = '/posts/' + newBlog.date + '.html'
-	var cats = 0;
 	
 	
 	var newBlog = new Blog();
