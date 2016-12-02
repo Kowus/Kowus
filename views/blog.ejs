@@ -32,7 +32,7 @@
             }
 
             figure {
-                border           : 1px solid rgba(44,44,44,0.5);
+                border           : 1px solid rgba(44, 44, 44, 0.5);
                 background-color : white;
                 height           : auto;
             }
@@ -43,16 +43,16 @@
                 overflow         : visible;
                 height           : auto;
                 margin           : 0px;
-                width :90%;
-                margin-left: auto;
-                margin-right: auto;
-                background-color: rgb(44, 44, 44);
+                width            : 90%;
+                margin-left      : auto;
+                margin-right     : auto;
+                background-color : rgb(44, 44, 44);
             }
 
             figcaption i {
-                font-family: "Josefin Sans";
-                padding: 10px;
-                font-size : 0.8em;
+                font-family : "Josefin Sans";
+                padding     : 10px;
+                font-size   : 0.8em;
             }
 
 
@@ -75,6 +75,13 @@
                             (blog))
 " ng-bind="blog.title"></a></li>
                     </ul>
+                    <a href="/work" class="col-sm-3"> <i class="fa fa-arrow-left"
+                                                         aria-hidden="true"></i>
+                        Back
+                    </a>
+                    <a href="/" class="col-sm-3"><i class="fa fa-home" aria-hidden="true"></i><%=
+                        next %>
+                    </a>
                     <small id="watermark">
                         <div class="marker" ng-bind="BlogCtrl.blogs[BlogCtrl.current].title">b</div>
                     </small>
@@ -86,11 +93,12 @@
                             <div class="modal-header">
                                 <h3 ng-bind="BlogCtrl.blogs[BlogCtrl.current].title" style="text-transform: capitalize;"></h3>
                                 <p ng-bind="BlogCtrl.blogs[BlogCtrl.current].description" class="subtitle"></p>
-                                <small ng-bind="BlogCtrl.blogs[BlogCtrl.current].categories" style="text-transform: uppercase;"></small>
+                                <small ng-bind="BlogCtrl.blogs[BlogCtrl.current].categories"
+                                       style="text-transform: uppercase;"></small>
                             </div>
                             <div style="margin-left: 20px;">
-                            <p ng-bind-html="BlogCtrl.blogs[BlogCtrl.current].content" class="info"></p>
-                                </div>
+                                <p ng-bind-html="BlogCtrl.blogs[BlogCtrl.current].content" class="info"></p>
+                            </div>
                             <figcaption>
                                 <br>
                                 <i>Written By Barnabas Nomo on {{BlogCtrl.blogs[0].date}}</i>
@@ -103,7 +111,7 @@
 
             </div>
         </div>
-        <div id="footre" ng-include='templates/footer.ejs'>
+        <div id="footre" ng-include="'/templates/footer.ejs'">
 
         </div>
 

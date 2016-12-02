@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = require('./blog.model');
-// var db = 'mongodb://localhost/blogdb';
-var db = 'mongodb://kowus:Sff8gh6J@ds050879.mlab.com:50879/blogdb'
-mongoose.connect(db);
+
+var db = 'mongodb://kowus:Sff8gh6J@ds050879.mlab.com:50879/blogdb';
+var db2 = 'mongodb://localhost/blogDB';
+mongoose.connect(db || db2);
 
 /* GET about page*/
 router.get('/', function (req, res, next) {
@@ -12,7 +13,7 @@ router.get('/', function (req, res, next) {
 		{
 			title: "Blog",
 			marker: "Barnabas Nomo",
-			next: "Activities"
+			next: "Home"
 		});
 });
 
