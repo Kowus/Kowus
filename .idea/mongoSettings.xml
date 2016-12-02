@@ -15,6 +15,22 @@
             <SshTunnelingConfiguration />
           </option>
         </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="blogdb" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="Heroku" />
+          <option name="password" value="Sff8gh6J" />
+          <option name="serverUrls">
+            <list>
+              <option value="ds050879.mlab.com:50879" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="blogdb" />
+          <option name="username" value="kowus" />
+        </ServerConfiguration>
       </list>
     </option>
     <option name="shellPath" value="/usr/bin/mongo" />
