@@ -5,7 +5,7 @@ var Blog = require('./blog.model');
 
 var db = 'mongodb://kowus:Sff8gh6J@ds050879.mlab.com:50879/blogdb';
 var db2 = 'mongodb://localhost/blogDB';
-mongoose.connect(db || db2);
+mongoose.connect(db);
 
 /* GET about page*/
 router.get('/', function (req, res, next) {
@@ -19,12 +19,12 @@ router.get('/', function (req, res, next) {
 
 router.get('/J2nmnk209olq1RWfiq', function (req, res) {
 	// console.log('getting all blogs');
-		Blog.find({}, { _id: 0,__v:0 }).exec(function (err, results) {
+		Blog.find({}).exec(function (err, results) {
 			if ( err ) {
 				res.send('an error has occurred' + err);
 			}
 			else {
-				console.log(results);
+				console.log("loaded blogs");
 				res.json(results);
 			}
 		});

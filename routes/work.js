@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     res.render('work',
         {
-            title: "Work",
+            title: "Activities",
             marker: "Barnabas Nomo",
             next: "About",
             contact: "Contact Me",

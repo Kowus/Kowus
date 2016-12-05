@@ -30,7 +30,7 @@
         <a name="top"></a>
         <div class="container main">
             <div class="row">
-                <div class="col-md-6" style="padding-top: 60px;">
+                <div class="col-md-6" style="padding-top: 60px;" ng-show="BlogCreator.vis === 1">
                     <div class="modal-header">
                         <h3 ng-bind="BlogCreator.bloga.title" style="text-transform: capitalize; text-decoration: underline;"></h3>
                         <p ng-bind="BlogCreator.bloga.description" class="subtitle"></p>
@@ -38,17 +38,32 @@
                     </div>
                     <div ng-bind-html="BlogCreator.bloga.content"></div>
                 </div>
+                <div class="col-md-6" style="padding-top: 60px;" ng-show="BlogCreator.vis === 2">
+                    <div class="modal-header">
+                        <h3 ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].title" style="text-transform: capitalize; text-decoration: underline;"></h3>
+                        <p ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].description" class="subtitle"></p>
+                        <small ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].categories" style="text-transform: uppercase;"></small>
+                    </div>
+                    <div ng-bind-html="BlogCreator.bloga2[BlogCreator.blogNum].content"></div>
+                </div>
 
                 <div class="col-md-6">
                     <a href="/blog" class="btn btn-rabbit back"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog
                     </a> <a
                             style="float: right;" href="/" class="btn btn-rabbit forward"> <%= next %><i
                                 class="fa fa-home" aria-hidden="true"></i></a>
+                    <div><a href="" ng-click="BlogCreator.setVis(1)">Add</a> <a href="" ng-click="BlogCreator.setVis(2)
+">Update</a></div>
                     <div id="watermark">
-                        <h2 class="page-title text-center"><%= title %></h2>
+                        <h2 class="page-title text-center" ng-show="BlogCreator.vis === 0"><%= title %></h2>
+                        <h2 class="page-title text-center" ng-show="BlogCreator.vis === 1">Add a blog</h2>
+                        <h2 class="page-title text-center" ng-show="BlogCreator.vis === 2">Update a blog</h2>
                         <div class="marker"><%= marker %></div>
                     </div>
-                    <form method="post" class="form-group" name="blogForm" ng-model="blogForm" ng-submit="BlogCreator.sendPosts()">
+
+                    <!--Add A Blog Post-->
+                    <form method="post" class="form-group" name="blogForm" ng-model="blogForm" ng-submit="BlogCreator.sendPosts
+                    ()" ng-show="BlogCreator.vis === 1">
                         <fieldset>
                             <input class="form-control" autofocus placeholder="title" name="title" ng-model="BlogCreator.bloga
                             .title" required>
@@ -69,6 +84,42 @@
                         <button type="submit" class="btn btn-rabbit">Submit</button>
                     </form>
 
+
+
+<div ng-show="BlogCreator.vis === 2">
+                    <ul class="list-unstyled">
+                        <li ng-repeat="blog in BlogCreator.bloga2"><a href="#" ng-click="BlogCreator.setBlogNum(BlogCreator.bloga2
+                            .indexOf
+                            (blog))
+" ng-bind="blog.title"></a></li>
+                    </ul>
+</div>
+                    <!--Todo: let angular handle updates-->
+
+                    <!--Update A Blog Post-->
+                    <!--<form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" ng-submit="BlogCreator-->
+                    <!--.updatePosts()" ng-show="BlogCreator.vis === 2">-->
+                    <form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" action="blog/Sjkqin28hn" ng-show="BlogCreator.vis === 2">
+                        <fieldset>
+                            <input id="title" class="form-control" autofocus name="title" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].title" required>
+                        </fieldset>
+                        <fieldset>
+                            <p><input class="form-control" name="description" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].description" required></p>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <select name="categories" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].categories" required>
+                                <option value="">Select A Category</option>
+                                <option value="society">Society</option>
+                                <option value="muse">Muse</option>
+                                <option value="inspiration">Inspiration</option>
+                                <option value="technology">Technology</option>
+                            </select>
+                            <textarea class="form-control" name="content" rows="15" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].content" required></textarea>
+                        </fieldset>
+                        <fieldset><label>Id: </label> <input class="form-control" name="id" ng-model="BlogCreator.bloga2[BlogCreator.blogNum]
+                        ._id"></fieldset>
+                        <button type="submit" class="btn btn-rabbit">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ var BlogSchema = new Schema({
 	},
 	content: {
 		type: String,
-		require: true
+		required: true
 	},
 	date: {
 		type: Date,

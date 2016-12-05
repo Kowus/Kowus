@@ -14,7 +14,9 @@ router.get('/', function (req, res, next) {
 		{
 			title:  "Create A New Blog",
 			marker: "blog",
-			next:   "Home"
+			next:   "Home",
+			horror: ''
+			
 		});
 	
 	
@@ -22,7 +24,7 @@ router.get('/', function (req, res, next) {
 
 
 router.post('/Nlw19i39Iw2', function (req, res) {
-	console.log(req.body);
+	// console.log(req.body);
 	
 	
 	
@@ -45,16 +47,45 @@ router.post('/Nlw19i39Iw2', function (req, res) {
 		}
 		
 	});
-	
 	/*
 	 * tODO: create a means of saving a draft ie.. set interval to 180 seconds and use fs to write to text file or set a click
 	 * event in angular to post to the server and have the database save the file.
 	 *
 	 * */
-	
-	
-	
 });
 
+router.post('/Sjkqin28hn', function (req, res) {
+	var reqBody = req.body;
+	console.log(req.body.title);
+	Blog.update(
+		{
+			id: req.body.id
+		}, {
+			title:      req.body.title,
+			categories: req.body.categories,
+			content:    req.body.content,
+			description: req.body.description
+			
+		}, function (err) {
+			if ( err ) {
+				res.send(err.message);
+			}
+			else {
+				console.log(reqBody);
+				res.send(reqBody);
+			}
+		}
+	);
+	/*Blog.find({}).exec(function (err, results) {
+		if ( err ) {
+			console.log('an error has occurred' + err);
+		}
+		else {
+			console.log("loaded blogs");
+			console.log(results);
+		}
+	});*/
+	
+});
 
 module.exports = router;

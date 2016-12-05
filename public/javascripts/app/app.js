@@ -28,10 +28,9 @@
 		var posta = this;
 		
 		posta.bloga = {};
-		
+		posta.bloga2 = [];
 		
 		this.sendPosts = function () {
-			
 			/*
 			$http({
 				method:  'POST',
@@ -46,7 +45,34 @@
 				console.log(response);
 			});
 			posta.bloga = {};
-		}
+		};
+		
+		posta.vis = 0;
+		posta.setVis = function (nextBlog) {
+			posta.vis = nextBlog || 0;
+		};
+		
+		posta.blogNum = 0;
+		posta.setBlogNum = function (indexOfBlog) {
+			posta.blogNum = indexOfBlog || 0;
+		};
+		
+		$http.get('/blog/J2nmnk209olq1RWfiq').success(function (data) {
+			posta.bloga2 = data;
+			
+		});
+		
+		
+		this.updatePosts = function () {
+			$http.post('Sjkqin28hn', posta.bloga2).success(function (response) {
+				console.log(response);
+			}).error(function (response) {
+				console.log(response);
+			});
+			console.log(posta.bloga2);
+			// posta.bloga2 = []
+			
+		};
 		
 	}]);
 	
