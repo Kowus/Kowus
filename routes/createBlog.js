@@ -25,9 +25,6 @@ router.get('/', function (req, res, next) {
 
 router.post('/Nlw19i39Iw2', function (req, res) {
 	// console.log(req.body);
-	
-	
-	
 	var newBlog = new Blog();
 	
 	newBlog.title = req.body.title;
