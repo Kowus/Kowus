@@ -5042,8 +5042,8 @@
       <file leaf-file-name="createBlog.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/createBlog.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2424">
-              <caret line="101" column="105" selection-start-line="101" selection-start-column="105" selection-end-line="101" selection-end-column="105" />
+            <state relative-caret-position="120">
+              <caret line="24" column="131" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="131" />
               <folding />
             </state>
           </provider>
@@ -5064,8 +5064,8 @@
       <file leaf-file-name="blog.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/blog.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="103" column="183" selection-start-line="103" selection-start-column="183" selection-end-line="103" selection-end-column="183" />
+            <state relative-caret-position="120">
+              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#i#0;n#figcaption#0;n#figure#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -5392,7 +5392,7 @@
       <workItem from="1480804962880" duration="1524000" />
       <workItem from="1480807975111" duration="6212000" />
       <workItem from="1480865005747" duration="297000" />
-      <workItem from="1480901638244" duration="1969000" />
+      <workItem from="1480901638244" duration="2223000" />
     </task>
     <task id="LOCAL-00001" summary="Resolved Email Verification">
       <created>1479056183646</created>
@@ -5653,11 +5653,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480903302501</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="tried nodemon">
+      <created>1480903762521</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1480903762522</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157742000" />
+    <option name="totallyTimeSpent" value="157996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="21" width="1366" height="747" extended-state="6" />
@@ -5996,14 +6003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/createBlog.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2424">
-          <caret line="101" column="105" selection-start-line="101" selection-start-column="105" selection-end-line="101" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
@@ -6056,10 +6055,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/createBlog.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="24" column="131" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/blog.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="103" column="183" selection-start-line="103" selection-start-column="183" selection-end-line="103" selection-end-column="183" />
+        <state relative-caret-position="120">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
           <folding>
             <element signature="n#style#0;n#a#0;n#i#0;n#figcaption#0;n#figure#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
