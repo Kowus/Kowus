@@ -106,14 +106,32 @@ app.post('/myapi', function (req, res) {
 
     quickemailverification.verify(bodyJson.mail, function (err, response) {
         // console.log("Error: " + err);
-        var smess = 0;
-        var mstus = 0;
 
-        if (err)
-            smess = err;
+        if (err){
+            res.render('work', {
+                title: "Work",
+                marker: "Barnabas Nomo",
+                next: "About",
+                contact: "Contact Me",
+                error: err,
+                name: bodyJson.name,
+                email: bodyJson.mail,
+                message: bodyJson.mess
+            });
+        }
         else {
             if (response.body.result == 'valid') {
-                smess = 'Message Sent';
+                res.render('work', {
+                    title: "Work",
+                    marker: "Barnabas Nomo",
+                    next: "About",
+                    contact: "Contact Me",
+                    success: 'Message Sent',
+                    name: bodyJson.name,
+                    email: bodyJson.mail,
+                    message: bodyJson.mess
+                });
+
                 mailgun.messages().send(data, function (error, body) {
                     console.log(body);
                 });
@@ -121,31 +139,21 @@ app.post('/myapi', function (req, res) {
 
             }
             else {
-                smess = 'Message not sent invalid Email:' + bodyJson.mail;
-                mstus = 1;
+
+
+                res.render('work', {
+                    title: "Work",
+                    marker: "Barnabas Nomo",
+                    next: "About",
+                    contact: "Contact Me",
+                    error: 'Message not sent invalid Email:' + bodyJson.mail,
+                    name: bodyJson.name,
+                    email: bodyJson.mail,
+                    message: bodyJson.mess
+                });
             }
         }
-        var billy = bodyJson;
-
-
-
-        res.render('work', {
-            title: "Work",
-            marker: "Barnabas Nomo",
-            next: "About",
-            contact: "Contact Me",
-            stat: smess,
-            name: billy.name,
-            email: billy.mail,
-            message: billy.mess,
-            mstus: mstus
-        });
-
-        console.log(smess);
-        console.log(mstus);
     });
-
-
 });
 
 

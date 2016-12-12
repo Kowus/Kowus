@@ -8,12 +8,8 @@ router.get('/', function (req, res, next) {
             title: "Activities",
             marker: "Barnabas Nomo",
             next: "About",
-            contact: "Contact Me",
-            stat: '',
-            name: '',
-            email: '',
-            message: '',
-            mstus: ''
+            contact: "Contact Me"
+
         });
 });
 
