@@ -76,12 +76,12 @@
                             (blog))
 " ng-bind="blog.title"></a></li>
                     </ul>
-                    <a href="/work" class="col-sm-3 col-md-3"> <i class="fa fa-arrow-left"
+                    <a href="/work"> <i class="fa fa-arrow-left"
                                                          aria-hidden="true"></i>
                         Back
                     </a>
-                    <a href="/" class="col-sm-3 col-md-3"><i class="fa fa-home" aria-hidden="true"></i><%=
-                        next %>
+                    <a href="/" style="padding-left: 6px"><%=
+                        next %><i class="fa fa-home" aria-hidden="true" ></i>
                     </a>
                     <small id="watermark">
                         <div class="marker" ng-bind="BlogCtrl.blogs[BlogCtrl.current].title">b</div>

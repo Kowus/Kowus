@@ -7,7 +7,10 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var mongoose = require('mongoose');
 var sm = require('sitemap');
+var compression = require('compression');
 
+var app = express();
+app.use(compression());
 
 var index = require('./routes/index');
 var about = require('./routes/about');
@@ -24,7 +27,7 @@ var API_key = '9dafbeaaf3fa79ed66ef30c0e0b3b0eeb661b298f3f8d97eb8283f0cdd49';
 
 var quickemailverification = require('quickemailverification').client(API_key).quickemailverification();
 
-var app = express();
+
 var mg_api_key = 'key-6039721ec9b6d1a5acbe90a165f49cb7';
 var mg_domain = 'app7ed32d6b39d64559bce5341401045a42.mailgun.org';
 
