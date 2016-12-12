@@ -46,8 +46,8 @@ var sitemap = sm.createSitemap ({
 	cacheTime: 600000,        // 600 sec - cache purge period
 	urls: [
 		{ url: '/',  changefreq: 'weekly', priority: 1 },
-		{ url: '/about',  changefreq: 'weekly', priority: 0.7 },
-		{ url: '/work',  changefreq: 'weekly',  priority: 0.7 },
+		{ url: '/about',  changefreq: 'weekly', priority: 0.6 },
+		{ url: '/work',  changefreq: 'weekly',  priority: 0.2 },
 		{ url: '/blog', changefreq: 'daily', priority: 0.9}    // changefreq: 'weekly',  priority: 0.5
 		// { url: '/page-4/',   img: "http://urlTest.com" }
 	]
