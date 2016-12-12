@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var mongoose = require('mongoose');
-
+var sm = require('sitemap');
 
 
 var index = require('./routes/index');
@@ -14,6 +14,7 @@ var about = require('./routes/about');
 var work = require('./routes/work');
 var blog = require('./routes/blog');
 // var createBlog = require('./routes/createBlog');
+
 
 var date = new Date();
 
@@ -39,9 +40,35 @@ app.locals.links = {
     google_plus: '#'
 };
 
+// Sitemaps
+var sitemap = sm.createSitemap ({
+	hostname: 'http://www.kowus.xyz/',
+	cacheTime: 600000,        // 600 sec - cache purge period
+	urls: [
+		{ url: '/',  changefreq: 'weekly', priority: 1 },
+		{ url: '/about',  changefreq: 'weekly', priority: 0.7 },
+		{ url: '/work',  changefreq: 'weekly',  priority: 0.7 },
+		{ url: '/blog', changefreq: 'daily', priority: 0.9}    // changefreq: 'weekly',  priority: 0.5
+		// { url: '/page-4/',   img: "http://urlTest.com" }
+	]
+});
+
+app.get('/sitemap.xml', function(req, res) {
+	sitemap.toXML( function (err, xml) {
+		if (err) {
+			return res.status(500).end();
+		}
+		res.header('Content-Type', 'application/xml');
+		res.send( xml );
+	});
+});
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
