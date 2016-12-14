@@ -9,6 +9,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 
 /* GET Blog page*/
+
 router.get('/', function (req, res, next) {
 	res.render('createBlog',
 		{

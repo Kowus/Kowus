@@ -8,6 +8,7 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var sm = require('sitemap');
 var compression = require('compression');
+var stormpath = require('express-stormpath');
 
 var app = express();
 app.use(compression());
@@ -16,7 +17,7 @@ var index = require('./routes/index');
 var about = require('./routes/about');
 var work = require('./routes/work');
 var blog = require('./routes/blog');
-// var createBlog = require('./routes/createBlog');
+var createBlog = require('./routes/createBlog');
 
 
 var date = new Date();
@@ -44,28 +45,27 @@ app.locals.links = {
 };
 
 // Sitemaps
-var sitemap = sm.createSitemap ({
-	hostname: 'http://www.kowus.xyz/',
-	cacheTime: 600000,        // 600 sec - cache purge period
-	urls: [
-		{ url: '/',  changefreq: 'weekly', priority: 1 },
-		{ url: '/about',  changefreq: 'weekly', priority: 0.6 },
-		{ url: '/work',  changefreq: 'weekly',  priority: 0.2 },
-		{ url: '/blog', changefreq: 'daily', priority: 0.9}    // changefreq: 'weekly',  priority: 0.5
-		// { url: '/page-4/',   img: "http://urlTest.com" }
-	]
+var sitemap = sm.createSitemap({
+    hostname: 'http://www.kowus.xyz/',
+    cacheTime: 600000,        // 600 sec - cache purge period
+    urls: [
+        {url: '/', changefreq: 'weekly', priority: 1},
+        {url: '/about', changefreq: 'weekly', priority: 0.6},
+        {url: '/work', changefreq: 'weekly', priority: 0.2},
+        {url: '/blog', changefreq: 'daily', priority: 0.9}    // changefreq: 'weekly',  priority: 0.5
+        // { url: '/page-4/',   img: "http://urlTest.com" }
+    ]
 });
 
-app.get('/sitemap.xml', function(req, res) {
-	sitemap.toXML( function (err, xml) {
-		if (err) {
-			return res.status(500).end();
-		}
-		res.header('Content-Type', 'application/xml');
-		res.send( xml );
-	});
+app.get('/sitemap.xml', function (req, res) {
+    sitemap.toXML(function (err, xml) {
+        if (err) {
+            return res.status(500).end();
+        }
+        res.header('Content-Type', 'application/xml');
+        res.send(xml);
+    });
 });
-
 
 
 // view engine setup
@@ -80,13 +80,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// Stormpath
+app.use(stormpath.init(app, {
+    website: true
+}));
+
+
+
 
 app.use('/', index);
 app.use('/about', about);
 app.use('/work', work);
 app.use('/blog', blog);
-// app.use('/add/blog', createBlog);
-
+app.use('/add/blog', stormpath.loginRequired, createBlog);
 
 
 app.post('/myapi', function (req, res) {
@@ -107,7 +113,7 @@ app.post('/myapi', function (req, res) {
     quickemailverification.verify(bodyJson.mail, function (err, response) {
         // console.log("Error: " + err);
 
-        if (err){
+        if (err) {
             res.render('work', {
                 title: "Work",
                 marker: "Barnabas Nomo",
