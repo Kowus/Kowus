@@ -46,8 +46,7 @@ router.post('/Nlw19i39Iw2', function (req, res) {
 		
 	});
 	/*
-	 * tODO: create a means of saving a draft ie.. set interval to 180 seconds and use fs to write to text file or set a click
-	 * event in angular to post to the server and have the database save the file.
+	 * tODO: create a means of saving a draft ie.. set interval to 180 seconds and use fs to write to text file or set a click event in angular to post to the server and have the database save the file.
 	 *
 	 * */
 });

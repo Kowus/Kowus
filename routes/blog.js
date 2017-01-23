@@ -3,8 +3,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = require('./blog.model');
 
-var db = 'mongodb://kowus:Sff8gh6J@ds050879.mlab.com:50879/blogdb';
-var db2 = 'mongodb://localhost/blogDB';
+var db = process.env.MONGODB_URL_KOWUS;
+// var db2 = 'mongodb://localhost/blogDB';
 mongoose.connect(db);
 
 /* GET about page*/
@@ -16,6 +16,7 @@ router.get('/', function (req, res, next) {
 			next: "Home"
 		});
 });
+
 
 router.get('/J2nmnk209olq1RWfiq', function (req, res) {
 	// console.log('getting all blogs');
