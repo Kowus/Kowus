@@ -1,5 +1,10 @@
 CACHE MANIFEST
 
+# Routes
+/
+/about
+/work
+
 # Stylesheets
 
 /stylesheets/main.css
