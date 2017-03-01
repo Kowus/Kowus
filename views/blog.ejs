@@ -72,7 +72,7 @@
             </div>
             <ul class="list-unstyled">
                 <% blogInfo.forEach(function (blog) {%>
-                <li><a href="blog/id/<%= blog._id %>"><%= blog.title %></a></li>
+                <li><a href="/blog/id/<%= blog._id %>"><%= blog.title %></a></li>
                 <%});%>
             </ul>
             <a href="/work"> <i class="fa fa-arrow-left"
@@ -81,35 +81,65 @@
             </a>
             <a href="/"><i class="fa fa-home" aria-hidden="true" ></i><%=
                 next %>
-            </a><!--
+            </a>
+            <% if(singleBlog){ %>
             <small id="watermark">
-                <div class="marker" ng-bind="BlogCtrl.blogs[BlogCtrl.current].title">b</div>
+                <div class="marker"><%= singleBlog[current].title %></div>
             </small>
+
 
         </div>
         <div class="col-md-6">
             <div>
                 <figure>
                     <div class="modal-header">
-                        <h3 ng-bind="BlogCtrl.blogs[BlogCtrl.current].title" style="text-transform: capitalize;"></h3>
-                        <p ng-bind="BlogCtrl.blogs[BlogCtrl.current].description" class="subtitle"></p>
-                        <small ng-bind="BlogCtrl.blogs[BlogCtrl.current].categories"
-                               style="text-transform: uppercase;"></small>
+                        <h3 style="text-transform: capitalize;"><%= singleBlog[current].title %></h3>
+                        <p class="subtitle"><%= singleBlog[current].description %></p>
+                        <small style="text-transform: uppercase;"><%= singleBlog[current].categories %></small>
                     </div>
                     <div style="margin-left: 20px;">
-                        <p ng-bind-html="BlogCtrl.blogs[BlogCtrl.current].content" class="info"></p>
+                        <p class="info"><%- singleBlog[current].content %></p>
                     </div>
                     <figcaption>
                         <br>
-                        <i>Written By <a href="#top" style="position: static; font-size: 1em; padding: 0; color: #2aabd2">Barnabas Nomo</a> on {{BlogCtrl.blogs[0].date | date }}</i>
+                        <i>Written By <a href="#top" style="position: static; font-size: 1em; padding: 0; color: #2aabd2">Barnabas Nomo</a> on <%= singleBlog[current].date.toDateString() %></i>
                     </figcaption>
                 </figure>
 
 
             </div>
-            -->
-        </div>
 
+        </div>
+            
+            <% } else{ %>
+            <small id="watermark">
+                <div class="marker"><%= blogInfo[current].title %></div>
+            </small>
+            
+
+        </div>
+        <div class="col-md-6">
+            <div>
+                <figure>
+                    <div class="modal-header">
+                        <h3 style="text-transform: capitalize;"><%= blogInfo[current].title %></h3>
+                        <p class="subtitle"><%= blogInfo[current].description %></p>
+                        <small style="text-transform: uppercase;"><%= blogInfo[current].categories %></small>
+                    </div>
+                    <div style="margin-left: 20px;">
+                        <p class="info"><%- blogInfo[current].content %></p>
+                    </div>
+                    <figcaption>
+                        <br>
+                        <i>Written By <a href="#top" style="position: static; font-size: 1em; padding: 0; color: #2aabd2">Barnabas Nomo</a> on <%= blogInfo[current].date.toDateString() %></i>
+                    </figcaption>
+                </figure>
+
+
+            </div>
+            
+        </div>
+<%}%>
     </div>
 </div>
 
