@@ -4,6 +4,10 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var Blog = require('./blog.model');
+var Dropbox = require('dropbox');
+var dbx = new Dropbox({accessToken:'YyHAryjXCUsAAAAAAAAAMGuy13MV5_zjNTdRTdcrwQ1Bv1GXycbkNOCCFT_-ciGe'});
+
+
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -11,15 +15,22 @@ router.use(bodyParser.urlencoded({ extended: false }));
 /* GET Blog page*/
 
 router.get('/', function (req, res, next) {
+    // dbx.filesListFolder({path: 'blog-mysite'})
+	dbx.filesCreateFolder('bloggerDays')
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 	res.render('createBlog',
 		{
 			title:  "Create A New Blog",
 			marker: "blog",
 			next:   "Home",
 			horror: ''
-			
 		});
-	
+
 	
 });
 
