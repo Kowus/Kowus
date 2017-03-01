@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="work" manifest="/off.appcache">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--<meta http-equiv="refresh" content="5">-->
+
+        <title>Barnabas Nomo's Blog</title>
+
+        <!--css here-->
+        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+        <link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
+        <link href="/stylesheets/main.css" rel="stylesheet">
+        <link rel="icon" href="/images/logo1.ico">
+
+        <!--angular js-->
+
+        <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
+        <script type="text/javascript" src="/javascripts/app/app.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
+
+        <style>
+            h3 {
+                font-family : Times, SansSerif, sans-serif;
+            }
+
+            figure {
+                border           : 1px solid rgba(44, 44, 44, 0.5);
+                background-color : white;
+                height           : auto;
+            }
+
+            figcaption {
+                color            : white;
+                /*background-color : rgba(44, 44, 44, 0.7);*/
+                overflow         : visible;
+                height           : auto;
+                margin           : 0px;
+                width            : 90%;
+                margin-left      : auto;
+                margin-right     : auto;
+                background-color : rgb(44, 44, 44);
+            }
+
+            figcaption i {
+                font-family : "Josefin Sans";
+                padding     : 10px;
+                font-size   : 0.8em;
+            }
+
+
+        </style>
+
+        <script type="text/javascript" id="gretaScript" src="https://cdn.greta.io/greta.min.js"data-ac="274c8d0f5a3d4e6a95fef74e72441bf8"></script>
+    </head>
+
+    <body ng-controller="BlogController as BlogCtrl">
+        <a name="top"></a>
+        <div class="container main mainer">
+            <div class="row port cs-style-3">
+                <div class="col-md-3">
+                    <div id="watermark">
+                        <h2 class="page-title" text-center><%= title %></h2>
+                        <div class="marker">b</div>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="blog in BlogCtrl.blogs"><a href="#" ng-click="BlogCtrl.setCurrent(BlogCtrl.blogs
+                            .indexOf
+                            (blog))
+" ng-bind="blog.title"></a></li>
+                    </ul>
+                    <a href="/work"> <i class="fa fa-arrow-left"
+                                                         aria-hidden="true"></i>
+                        Back
+                    </a>
+                    <a href="/"><i class="fa fa-home" aria-hidden="true" ></i><%=
+                        next %>
+                    </a>
+                    <small id="watermark">
+                        <div class="marker" ng-bind="BlogCtrl.blogs[BlogCtrl.current].title">b</div>
+                    </small>
+
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <figure>
+                            <div class="modal-header">
+                                <h3 ng-bind="BlogCtrl.blogs[BlogCtrl.current].title" style="text-transform: capitalize;"></h3>
+                                <p ng-bind="BlogCtrl.blogs[BlogCtrl.current].description" class="subtitle"></p>
+                                <small ng-bind="BlogCtrl.blogs[BlogCtrl.current].categories"
+                                       style="text-transform: uppercase;"></small>
+                            </div>
+                            <div style="margin-left: 20px;">
+                                <p ng-bind-html="BlogCtrl.blogs[BlogCtrl.current].content" class="info"></p>
+                            </div>
+                            <figcaption>
+                                <br>
+                                <i>Written By <a href="#top" style="position: static; font-size: 1em; padding: 0; color: #2aabd2">Barnabas Nomo</a> on {{BlogCtrl.blogs[0].date | date }}</i>
+                            </figcaption>
+                        </figure>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <script src="/javascripts/jquery-3.1.0.min.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <!--<script src="/javascripts/owl.carousel.min.js"></script>-->
+        <script src="/javascripts/main.js"></script>
+
+
+        <!--Google Analytics-->
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-87349035-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+
+    </body>
+
+</html>

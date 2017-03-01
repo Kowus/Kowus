@@ -29,8 +29,8 @@ var API_key = '9dafbeaaf3fa79ed66ef30c0e0b3b0eeb661b298f3f8d97eb8283f0cdd49';
 var quickemailverification = require('quickemailverification').client(API_key).quickemailverification();
 
 
-var mg_api_key = 'key-6039721ec9b6d1a5acbe90a165f49cb7';
-var mg_domain = 'app7ed32d6b39d64559bce5341401045a42.mailgun.org';
+var mg_api_key = process.env.MAILGUN_API_KEY;
+var mg_domain = process.env.MAILGUN_DOMAIN;
 
 var mailgun = require('mailgun-js')({apiKey: mg_api_key, domain: mg_domain});
 
