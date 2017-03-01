@@ -1,9 +1,6 @@
 CACHE MANIFEST
 
-/
-/about
-/work
-/blog/alt
+# Stylesheets
 
 /stylesheets/main.css
 /stylesheets/bootstrap.min.css
@@ -11,12 +8,16 @@ CACHE MANIFEST
 /stylesheets/font-awesome.min.css
 /stylesheets/owl.carousel.min.css
 /stylesheets/owl.theme.default.min.css
+
+# Javascripts
 /javascripts/bootstrap.min.js
 /javascripts/owl.carousel.min.js
 /javascripts/jquery-3.1.0.min.js
 /javascripts/app/angular.min.js
 /javascripts/app/angular-sanitize.js
 /javascripts/app/app.js
+
+# Fonts
 /fonts/FontAwesome.otf
 /fonts/fontawesome-webfont.eot
 /fonts/fontawesome-webfont.svg
@@ -24,18 +25,17 @@ CACHE MANIFEST
 /fonts/fontawesome-webfont.woff
 /fonts/fontawesome-webfont.woff2
 
+# images
 /images/logo1.ico
 /images/home.jpg
 /images/hourOFCode15.jpg
 /images/oususvchi.jpg
 /images/logo.gif
 /images/about.jpg
-/blog/J2nmnk209olq1RWfiq
+
 
 https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i
 https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700
 
 NETWORK:
 *
-FALLBACK:
-/blog /blog/alt
