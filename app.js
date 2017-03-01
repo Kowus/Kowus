@@ -170,15 +170,17 @@ app.post('/myapi', function (req, res) {
 
 
 
+/*
 
 var dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
-dbx.filesListFolder({path: './'})
+dbx.filesListFolder({path: 'blog-mysite'})
     .then(function(response) {
         console.log(response);
     })
     .catch(function(error) {
         console.log(error);
     });
+*/
 
 
 
