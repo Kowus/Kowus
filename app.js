@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var sm = require('sitemap');
 var compression = require('compression');
 var stormpath = require('express-stormpath');
+var Dropbox = require('dropbox');
 
 var app = express();
 app.use(compression());
@@ -166,6 +167,20 @@ app.post('/myapi', function (req, res) {
         }
     });
 });
+
+
+
+
+var dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
+dbx.filesListFolder({path: './'})
+    .then(function(response) {
+        console.log(response);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+
+
 
 
 // catch 404 and forward to error handler
