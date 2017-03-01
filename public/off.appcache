@@ -18,6 +18,12 @@ CACHE MANIFEST
 /javascripts/app/angular.min.js
 /javascripts/app/angular-sanitize.js
 /javascripts/app/app.js
+/fonts/FontAwesome.otf
+/fonts/fontawesome-webfont.eot
+/fonts/fontawesome-webfont.svg
+/fonts/fontawesome-webfont.ttf
+/fonts/fontawesome-webfont.woff
+/fonts/fontawesome-webfont.woff2
 
 /images/logo1.ico
 /images/home.jpg
