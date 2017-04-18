@@ -38,3 +38,6 @@ jspm_packages
 public/templates/blog1.ejs
 public/posts/corner.txt
 
+.idea
+.vscode
+*.iml
