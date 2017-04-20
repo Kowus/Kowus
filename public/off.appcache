@@ -1,10 +1,14 @@
 CACHE MANIFEST
 
+# Cached Residuals
+
+
 # Routes
 /
 /about
 /work
 /blog
+/events
 
 # Stylesheets
 

@@ -19,6 +19,7 @@ var about = require('./routes/about');
 var work = require('./routes/work');
 var blog = require('./routes/blog');
 var createBlog = require('./routes/createBlog');
+var events =  require('./routes/events');
 
 
 var date = new Date();
@@ -53,7 +54,8 @@ var sitemap = sm.createSitemap({
         {url: '/', changefreq: 'weekly', priority: 1},
         {url: '/about', changefreq: 'weekly', priority: 0.6},
         {url: '/work', changefreq: 'weekly', priority: 0.2},
-        {url: '/blog', changefreq: 'daily', priority: 0.9}    // changefreq: 'weekly',  priority: 0.5
+        {url: '/blog', changefreq: 'daily', priority: 0.9},    // changefreq: 'weekly',  priority: 0.5
+        {url: '/events', changefreq: 'weekly', priority: 0.9}
         // { url: '/page-4/',   img: "http://urlTest.com" }
     ]
 });
@@ -99,6 +101,7 @@ app.use('/about', about);
 app.use('/work', work);
 app.use('/blog', blog);
 app.use('/add/blog', stormpath.loginRequired, createBlog);
+app.use('/events', events);
 
 
 app.post('/myapi', function (req, res) {

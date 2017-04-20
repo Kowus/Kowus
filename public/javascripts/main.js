@@ -1,18 +1,12 @@
 $(function(){$("#owl-demo").owlCarousel({slideSpeed:2000,paginationSpeed:2000,singleItem:true,autoplay:3000,loop:true,nav:true,items:1,navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],dots:false});$('#404Page').height($(window).height());$('#contactlink').click(function () {$('#contact').toggleClass("ran raner");});});
 var appCache = window.applicationCache;
-
 appCache.update();
-
-
-
 window.addEventListener('load', function(e) {
-
     window.applicationCache.addEventListener('updateready', function(e) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             // Browser downloaded a new app cache.
-            if (confirm('A new version of this site is available. Load it?')) {
                 window.location.reload();
-            }
+
         } else {
             // Manifest didn't changed. Nothing new to server.
         }
