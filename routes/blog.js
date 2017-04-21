@@ -3,8 +3,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = require('./blog.model');
 
-// var db = process.env.MONGODB_URL_KOWUS;
-var db = 'mongodb://localhost/blogDB';
+var db = process.env.MONGODB_URL_KOWUS;
+// var db = 'mongodb://localhost/blogDB';
 mongoose.connect(db);
 
 /* GET about page*/
