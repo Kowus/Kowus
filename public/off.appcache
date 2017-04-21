@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Cached Residuals
+# Cached Residuals 15:25
 
 
 # Routes
@@ -47,5 +47,5 @@ CACHE MANIFEST
 https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i
 https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700
 
-NETWORK:
-*
+# NETWORK:
+# *
