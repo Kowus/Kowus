@@ -29,7 +29,7 @@
         <div class="col-md-6 col-sm-offset-0">
 
             <div id="watermark">
-                <h2 class="page-title text-center">Hackathons</h2>
+                <h2 class="page-title text-center">Kodeforidua</h2>
                 <div class="marker">Weekly Hackathons</div>
             </div>
         </div>
@@ -64,17 +64,48 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Register</h4>
+                            <h3 class="modal-title">Register</h3>
                         </div>
                         <div class="modal-body">
                             <form class="form-group">
                                 <fieldset class="form-group form-inline">
-
-                                        <input class="form-group form-control" type="text" placeholder="First Name"
-                                               name="first_name" id="first_name" required>
+                                    <input class="form-group form-control" type="text" placeholder="First Name"
+                                           name="first_name" id="first_name" required>
                                     <input class="form-group form-control" type="text" placeholder="Last Name"
-                                               name="last_name" id="last_name" required>
+                                           name="last_name" id="last_name" required>
+                                </fieldset>
+                                <fieldset class="form-group form-inline">
+                                    <h4>Sex</h4>
 
+                                    <p class="col-sm-6">Male: <br><input class="form-group form-control" type="radio" placeholder="Male"
+                                                                         name="sex" id="sex" required></p>
+                                    <p class="col-sm-6">Female: <br><input class="form-group form-control" type="radio" placeholder="Female"
+                                                                           name="sex" id="sex" required></p>
+                                </fieldset>
+
+                                <fieldset class="form-group">
+
+                                    <input class="form-group form-control" type="email" placeholder="Email"
+                                           name="email" id="email" required>
+                                </fieldset>
+                                <fieldset class="form-inline">
+
+
+
+                                        <% countries.forEach(function (item) { %>
+                                    <small><%= item.name %></small>
+                                       <% }) %>
+
+
+
+
+                                    <input class="form-control col-sm-7 col-xs-7" type="tel" placeholder="Phone"
+                                           name="phone" id="phone" required>
+                                </fieldset>
+
+
+                                <fieldset>
+                                    <input type="submit" class="btn btn-success pull-right" style="margin-top: 20px;" value="Submit">
                                 </fieldset>
                             </form>
                         </div>
@@ -128,6 +159,7 @@
 
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
+
 <!--<script src="/javascripts/owl.carousel.min.js"></script>-->
 <script src="/javascripts/main.js"></script>
 
