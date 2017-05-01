@@ -20,7 +20,7 @@ function handleCacheEvent(e) {
 
 function handleCacheError(e) {
     alert('Error: Cache failed to update!');
-};
+}
 
 // Fired after the first cache of the manifest.
 appCache.addEventListener('cached', handleCacheEvent, false);
