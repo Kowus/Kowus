@@ -958,10 +958,7 @@
     "calling_code": "672",
     "country_name": "Antarctica"
   },
-  "AP": {
-    "calling_code": "",
-    "country_name": ""
-  }, {
+   {
   "country_id":"ID",
     "calling_code": "1684",
     "country_name": "American Samoa"

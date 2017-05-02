@@ -4,25 +4,19 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var Blog = require('./blog.model');
+/*
 var Dropbox = require('dropbox');
 var dbx = new Dropbox({accessToken:'YyHAryjXCUsAAAAAAAAAMGuy13MV5_zjNTdRTdcrwQ1Bv1GXycbkNOCCFT_-ciGe'});
+*/
 
 
 
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
+// router.use(bodyParser.json());
+// router.use(bodyParser.urlencoded({ extended: false }));
 
 /* GET Blog page*/
 
 router.get('/', function (req, res, next) {
-    // dbx.filesListFolder({path: 'blog-mysite'})
-	dbx.filesCreateFolder('bloggerDays')
-        .then(function(response) {
-            console.log(response);
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
 	res.render('createBlog',
 		{
 			title:  "Create A New Blog",
@@ -31,7 +25,7 @@ router.get('/', function (req, res, next) {
 			horror: ''
 		});
 
-	
+
 });
 
 
@@ -64,23 +58,24 @@ router.post('/Nlw19i39Iw2', function (req, res) {
 
 router.post('/Sjkqin28hn', function (req, res) {
 	var reqBody = req.body;
-	console.log(req.body.title);
-	Blog.update(
+	console.log("Update Blog: "+reqBody.title);
+	Blog.findOneAndUpdate(
 		{
-			id: req.body.id
+			_id: reqBody._id
 		}, {
-			title:      req.body.title,
-			categories: req.body.categories,
-			content:    req.body.content,
-			description: req.body.description
-			
-		}, function (err) {
+			title:      reqBody.title,
+			categories: reqBody.categories,
+			content:    reqBody.content,
+			description: reqBody.description
+
+		}, function (err, result) {
 			if ( err ) {
 				res.send(err.message);
+				return console.log(err.message);
 			}
 			else {
-				console.log(reqBody);
-				res.send(reqBody);
+				console.log('Updated: '+result._id);
+				res.render('success',{message:'successfully updated: '+result.title});
 			}
 		}
 	);
@@ -93,7 +88,7 @@ router.post('/Sjkqin28hn', function (req, res) {
 			console.log(results);
 		}
 	});*/
-	
+
 });
 
 module.exports = router;

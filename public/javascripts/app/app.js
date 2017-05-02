@@ -63,14 +63,13 @@
 		});
 		
 		
-		this.updatePosts = function () {
-			$http.post('Sjkqin28hn', posta.bloga2).success(function (response) {
+		this.updatePosts = function (indexOfBlog) {
+			$http.post('Sjkqin28hn', posta.bloga2[indexOfBlog]).success(function (response) {
 				console.log(response);
 			}).error(function (response) {
-				console.log(response);
+				console.error(response);
 			});
-			console.log(posta.bloga2);
-			// posta.bloga2 = []
+
 			
 		};
 		

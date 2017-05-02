@@ -97,9 +97,8 @@
                     <!--Todo: let angular handle updates-->
 
                     <!--Update A Blog Post-->
-                    <!--<form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" ng-submit="BlogCreator-->
-                    <!--.updatePosts()" ng-show="BlogCreator.vis === 2">-->
-                    <form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" action="blog/Sjkqin28hn" ng-show="BlogCreator.vis === 2">
+                    <!--<form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" ng-submit="BlogCreator.updatePosts()" ng-show="BlogCreator.vis === 2">-->
+                    <form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" action="/add/blog/Sjkqin28hn" ng-show="BlogCreator.vis === 2">
                         <fieldset>
                             <input id="title" class="form-control" autofocus name="title" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].title" required>
                         </fieldset>
@@ -116,7 +115,8 @@
                             </select>
                             <textarea class="form-control" name="content" rows="15" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].content" required></textarea>
                         </fieldset>
-                        <fieldset><label>Id: </label> <input class="form-control" name="id" ng-model="BlogCreator.bloga2[BlogCreator.blogNum]
+                        <fieldset><label>Id: <span ng-bind="BlogCreator.bloga2[BlogCreator.blogNum]
+                        ._id"></span></label> <input class="form-control hidden" name="_id" ng-model="BlogCreator.bloga2[BlogCreator.blogNum]
                         ._id"></fieldset>
                         <button type="submit" class="btn btn-rabbit">Submit</button>
                     </form>
