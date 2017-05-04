@@ -90,14 +90,21 @@
                                 </fieldset>
                                 <fieldset class="form-inline">
 
+                                    <select class="form-control" name="country_code" style="width:250px;">
+                                    <% countries.forEach(function (item) { %>
+                                        <%if(item[1].calling_code !==''||item[1].country_name!==''){%>
+                                    	<option <% if (item[0] === 'GH'){%>selected<%} %> value="<%= item[1].calling_code %>">
+                                        +(<%= item[1].calling_code %>)    <%= item[1].country_name %>
+                                        </option>
+                                        <%}%>
+                                   <% }) %>
+                                    </select>
 
 
 
 
 
-
-
-                                    <input class="form-control col-sm-7 col-xs-7" type="tel" placeholder="Phone"
+                                    <input class="form-control" type="tel" placeholder="Phone"
                                            name="phone" id="phone" required>
                                 </fieldset>
 
