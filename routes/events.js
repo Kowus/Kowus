@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
 
     res.render('events',{
         title: "Barnabas Nomo:: Events",
-        countries:Object.entries(countries)
+        // countries:Object.keys(countries)
     })
 });
 

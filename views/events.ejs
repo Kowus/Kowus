@@ -67,7 +67,7 @@
                             <h3 class="modal-title">Register</h3>
                         </div>
                         <div class="modal-body">
-                            <form class="form-group">
+                            <form class="form-group form-group-sm">
                                 <fieldset class="form-group form-inline">
                                     <input class="form-group form-control" type="text" placeholder="First Name"
                                            name="first_name" id="first_name" required>
@@ -77,30 +77,18 @@
                                 <fieldset class="form-group form-inline">
                                     <h4>Sex</h4>
 
-                                    <p class="col-sm-6">Male: <br><input class="form-group form-control" type="radio" placeholder="Male"
+                                    <p class="col-xs-3">Male: <br><input class="form-control" type="radio" placeholder="Male"
                                                                          name="sex" id="sex" required></p>
-                                    <p class="col-sm-6">Female: <br><input class="form-group form-control" type="radio" placeholder="Female"
+                                    <p class="col-xs-3">Female: <br><input class="form-control" type="radio" placeholder="Female"
                                                                            name="sex" id="sex" required></p>
                                 </fieldset>
 
                                 <fieldset class="form-group">
 
-                                    <input class="form-group form-control" type="email" placeholder="Email"
-                                           name="email" id="email" required>
+                                    <input class="form-control" type="email" placeholder="Email"
+                                           name="email" id="email" required style="max-width: 70%">
                                 </fieldset>
                                 <fieldset class="form-inline">
-
-                                    <select class="form-control" name="country_code" style="width:250px;">
-                                    <% countries.forEach(function (item) { %>
-                                        <%if(item[1].calling_code !==''||item[1].country_name!==''){%>
-                                    	<option <% if (item[0] === 'GH'){%>selected<%} %> value="<%= item[1].calling_code %>">
-                                        +(<%= item[1].calling_code %>)    <%= item[1].country_name %>
-                                        </option>
-                                        <%}%>
-                                   <% }) %>
-                                    </select>
-
-
 
 
 

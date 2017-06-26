@@ -8,7 +8,7 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var sm = require('sitemap');
 var compression = require('compression');
-var stormpath = require('express-stormpath');
+// var stormpath = require('express-stormpath');
 // var Dropbox = require('dropbox');
 
 var app = express();
@@ -20,6 +20,7 @@ var work = require('./routes/work');
 var blog = require('./routes/blog');
 var createBlog = require('./routes/createBlog');
 var events =  require('./routes/events');
+var blog_dash = require('./routes/blog-dash');
 
 
 var date = new Date();
@@ -84,6 +85,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Stormpath
+/*
 app.use(stormpath.init(app, {
     website: true,
     web: {
@@ -92,6 +94,7 @@ app.use(stormpath.init(app, {
         }
     }
 }));
+*/
 
 
 
@@ -100,7 +103,8 @@ app.use('/', index);
 app.use('/about', about);
 app.use('/work', work);
 app.use('/blog', blog);
-app.use('/add/blog', stormpath.loginRequired, createBlog);
+app.use('/blog-home', blog_dash);
+app.use('/add/blog', /*stormpath.loginRequired,*/ createBlog);
 app.use('/events', events);
 
 
