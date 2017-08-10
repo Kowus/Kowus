@@ -5,7 +5,7 @@ var countries = require('./countries.json');
 router.get('/', function (req, res, next) {
 
     res.render('events',{
-        title: "Barnabas Nomo:: Events",
+        title: "Barnabas Nomo:: Events"
         // countries:Object.keys(countries)
     })
 });

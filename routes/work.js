@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var projects = require('./projects.json');
 
 /* GET work page*/
 router.get('/', function (req, res, next) {
@@ -8,8 +9,8 @@ router.get('/', function (req, res, next) {
             title: "Activities",
             marker: "Barnabas Nomo",
             next: "About",
-            contact: "Contact Me"
-
+            contact: "Contact Me",
+            projects: projects
         });
 });
 

@@ -1,0 +1,75 @@
+<a name="top"></a>
+<div class="container main mainer">
+    <div class="row port cs-style-3">
+        <div class="col-md-6">
+            <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit">
+
+                <figure ng-repeat="pic in pictrl.pics" style="object-fit: cover;">
+                    <img id="workPic" ng-src="{{pic.image}}">
+                    <figcaption>
+                        <h3 ng-bind="pic.name"></h3>
+                        <span id="picDes" ng-bind="pic.description"></span>
+                        <a ng-href="{{pic.url}}" target="_blank" class="button">Take a look</a>
+                    </figcaption>
+                </figure>
+
+
+            </div>
+        </div>
+
+
+        <!--Put this section in a modal-->
+        <div class="col-md-6">
+            <div class="row">
+                <a href="/about" class="btn btn-rabbit back col-sm-3">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <%= next %>
+                </a>
+                <a href="/blog" class="btn btn-rabbit forward col-sm-offset-3">
+                    Blog
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div id="watermark">
+                <h2 class="page-title" text-center><%= title %></h2>
+                <div class="marker"><%= marker %></div>
+            </div>
+
+            <!--Contact Me-->
+            <div style="margin-bottom: 50px; width: 96%;">
+
+                <h4 style="background-color: #0f0f0f; padding: 20px;  margin-bottom: 0;" id="contact" class="ran"><a
+                            id="contactlink" class="ram" href="#contform" data-toggle="collapse"><%= contact %></a></h4>
+                <div id="contform" class="collapse">
+                    <% include templates/contact.ejs %>
+                </div>
+            </div>
+            <div><%if (typeof success != 'undefined') { %>
+                <p id="statusMessage" class="alert alert-success" style="width:96%; text-align: center;">
+                    <span><%if (typeof success != 'undefined') { %><%= success %><% } %></span>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                </p></div>
+            <% } else if (typeof error != 'undefined') { %>
+            <p id="statusMessage" class="alert alert-danger" style="width:96%; text-align: center;">
+                <span><%if (typeof error != 'undefined') { %><%= error %><% } %></span>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </p></div>
+        <% } %>
+
+    </div>
+    <br>
+
+    <br>
+    <% include templates/social.ejs %>
+</div>
+<div id="footre">
+    <% include templates/footer.ejs %>
+</div>
+
+</div>
+
+
+<script src="/javascripts/jquery-3.1.0.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/owl.carousel.min.js"></script>
+<script src="/javascripts/main.js"></script>
