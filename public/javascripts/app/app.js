@@ -85,12 +85,12 @@
 			url:         'http://www.oususvchi.com'
 		}, {
 			name:        'Hour Of Code 2015',
-			description: 'Some Description',
+			description: 'Building Websites With Modern Frameworks',
 			image:       '/images/hourOFCode15.jpg',
 			url:         '#'
 		}, {
 			name:        'Kodeforidua',
-			description: 'Some Description',
+			description: 'Mobile Computer Lab Sessions',
 			image:       '/images/karate-pose.jpg',
 			url:         '#'
 		}
