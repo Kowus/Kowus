@@ -20,7 +20,6 @@ var work = require('./routes/work');
 var blog = require('./routes/blog');
 var createBlog = require('./routes/createBlog');
 var events =  require('./routes/events');
-var blog_dash = require('./routes/blog-dash');
 
 
 var date = new Date();
@@ -85,16 +84,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Stormpath
-/*
-app.use(stormpath.init(app, {
-    website: true,
-    web: {
-        register: {
-            enabled: false
-        }
-    }
-}));
-*/
 
 
 
@@ -103,8 +92,7 @@ app.use('/', index);
 app.use('/about', about);
 app.use('/work', work);
 app.use('/blog', blog);
-app.use('/blog-home', blog_dash);
-app.use('/add/blog', /*stormpath.loginRequired,*/ createBlog);
+app.use('/add/blog', createBlog);
 app.use('/events', events);
 
 
@@ -175,19 +163,6 @@ app.post('/myapi', function (req, res) {
     });
 });
 
-
-
-/*
-
-var dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
-dbx.filesListFolder({path: 'blog-mysite'})
-    .then(function(response) {
-        console.log(response);
-    })
-    .catch(function(error) {
-        console.log(error);
-    });
-*/
 
 
 

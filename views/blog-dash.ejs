@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Barnabas Nomo">
+
+    <title>Barnabas's Blog</title>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/stylesheets/main.css" rel="stylesheet">
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="/stylesheets/clean-blog.min.css" rel="stylesheet">
+
+</head>
+<body style="overflow-x: hidden">
+
+<header class="intro-header" style="background-image: url('/images/home-bg.jpg'); margin: 0 auto; width: 80vw;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>My Blog</h1>
+                    <hr class="small">
+                    <span class="subheading">
+
+                        <ul class="list-group list-unstyled list-inline">
+                            <li>
+                                <a href="/work" class="btn btn-default">Activity</a>
+                            </li>
+                            <li>
+                                <a href="/" class="btn btn-default">Go Home</a>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--<div class="container" style="background-color: white">-->
+
+
+<!--</div>-->
+<!-- Main Content -->
+<div class="container" style="background-color: white">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <% blogs.forEach(function (blog) { %>
+            <div class="post-preview">
+                <a href="/blog/title/<%=blog.permalink%>">
+                    <h2 class="post-title">
+                        <%= blog.title %>
+                        <!--Man must explore, and this is exploration at its greatest-->
+                    </h2>
+                    <h3 class="post-subtitle">
+                        <%=blog.description%>
+                    </h3>
+                </a>
+                <p class="post-meta">Posted by <a href="#"><%=blog.author%></a> on <%=blog.date%></p>
+            </div>
+            <hr>
+            <% }) %>
+
+            <!-- Pager -->
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+    <div class="col-sm-12 text-center">
+        <!--<h2><i class="fa fa-heartbeat" aria-hidden="true"></i></h2>-->
+
+        <% include templates/social.ejs %>
+        <p class="lead" style="margin-top: 0">
+            <a href="#top" class="footer-text" style="color: darkred; font-size: small; text-decoration: none;">
+                <i class="fa fa-globe" style="margin-right: 10px;"></i> The World Is Yours
+            </a>
+        </p>
+    </div>
+</div>
+
+<script src="/javascripts/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/javascripts/bootstrap.min.js"></script>
+
+<script src="/javascripts/jqBootstrapValidation.js"></script>
+
+<script src="/javascripts/clean-blog.min.js"></script>
+</body>
+</html>

@@ -8,6 +8,10 @@ var BlogSchema = new Schema({
 		required: true,
 		unique: true
 	},
+	permalink: {
+		type: String,
+		required:true
+	},
 	description: {
 		type: String,
 		required: true,
@@ -33,3 +37,4 @@ var BlogSchema = new Schema({
 });
 
 module.exports = mongoose.model('blog', BlogSchema);
+

@@ -34,6 +34,7 @@ router.post('/Nlw19i39Iw2', function (req, res) {
 	var newBlog = new Blog();
 	
 	newBlog.title = req.body.title;
+	newBlog.permalink = newBlog.title.trim().toLowerCase().split(/[\s,.]+/).join('_');
 	newBlog.content = req.body.content;
 	newBlog.categories = req.body.categories;
 	newBlog.description = req.body.description;
@@ -79,15 +80,6 @@ router.post('/Sjkqin28hn', function (req, res) {
 			}
 		}
 	);
-	/*Blog.find({}).exec(function (err, results) {
-		if ( err ) {
-			console.log('an error has occurred' + err);
-		}
-		else {
-			console.log("loaded blogs");
-			console.log(results);
-		}
-	});*/
 
 });
 

@@ -18,21 +18,18 @@ router.get('/alt', function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-    var blogs = [];
     Blog.find({}).exec(function (err, results) {
         if (err) {
-            console.log('an error has occurred' + err);
-            res.redirect('/alt');
+            res.render('error',{error:err, message:err.message})
         }
         else {
             // console.log();
-            res.render('blog',
+            res.render('blog-dash',
                 {
                     title: "Blog",
                     marker: "Barnabas Nomo",
                     next: "Home",
-                    blogInfo: results,
-                    current: 0
+                    blogs: results
                 });
         }
     });
@@ -51,8 +48,8 @@ router.get('/J2nmnk209olq1RWfiq', function (req, res) {
     });
 });
 
-router.get('/id/:blog_id', function (req, res) {
-    var fullBlog = [];
+router.get('/title/:blog_title', function (req, res) {
+    /*var fullBlog = [];
     var sinBlog = [];
     Blog.find({}).exec(function (err, results) {
         if (err) {
@@ -63,25 +60,12 @@ router.get('/id/:blog_id', function (req, res) {
             console.log("loaded blogs");
             fullBlog = results;
         }
-    });
-    Blog.find({_id: req.params.blog_id}).exec(function (err, results) {
+    });*/
+    Blog.findOne({permalink: req.params.blog_title}).exec(function (err, blog) {
         if (err) {
-            console.log('an error has occurred' + err);
-            res.redirect('/alt');
+            return console.log('an error has occurred' + err);
         }
-        else {
-            console.log("loaded blogs");
-            sinBlog = results;
-        }
-        res.render('blog',
-            {
-                title: "Blog",
-                marker: "Barnabas Nomo",
-                next: "Home",
-                blogInfo: fullBlog,
-                singleBlog: sinBlog,
-                current: 0
-            });
+        res.render('blog',{blog:blog})
     });
 });
 
