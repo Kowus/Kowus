@@ -41,3 +41,4 @@ public/posts/corner.txt
 .idea
 .vscode
 *.iml
+.env
