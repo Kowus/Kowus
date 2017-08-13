@@ -1,83 +1,98 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="/images/logo1.ico">
-        <meta name="description" content="I've long had a dream to transform Africa by empowering youth through technology. I'm a self-taught programmer with a passion for Arduino powered Maker Projects. When I'm not coding or hacking together independent projects, you can usually find me working for Emerging Leaders in Technology and Engineering (ELiTE), the US based non-profit that first introduced me to engineering. At ELiTE, we use Raspberry Pi laptops to assemble portable computer labs, bringing computer science and open source software to communities that can benefit most from this developer community.">
-        <meta name="keywords" content="Barnabas Nomo,Mawukley,Coders In Africa, Koforidua Developer, About">
-        <meta name="author" content="Barnabas Nomo">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title><%= title %> Barnabas Nomo</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/logo1.ico">
+    <meta name="description"
+          content="I've long had a dream to transform Africa by empowering youth through technology. I'm a self-taught programmer with a passion for Arduino powered Maker Projects. When I'm not coding or hacking together independent projects, you can usually find me working for Emerging Leaders in Technology and Engineering (ELiTE), the US based non-profit that first introduced me to engineering. At ELiTE, we use Raspberry Pi laptops to assemble portable computer labs, bringing computer science and open source software to communities that can benefit most from this developer community.">
+    <meta name="keywords" content="Barnabas Nomo,Mawukley,Coders In Africa, Koforidua Developer, About">
+    <meta name="author" content="Barnabas Nomo">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title><%= title %> Barnabas Nomo</title>
 
-        <script type="text/javascript" id="gretaScript" src="https://cdn.greta.io/greta.min.js" data-ac="274c8d0f5a3d4e6a95fef74e72441bf8"></script>
+    <script type="text/javascript" id="gretaScript" src="https://cdn.greta.io/greta.min.js"
+            data-ac="274c8d0f5a3d4e6a95fef74e72441bf8"></script>
 
-    </head>
-    <body>
-    <script>
-        var cb = function(href) {
-            var l = document.createElement('link'); l.rel = 'stylesheet';
-            l.href = href;
-            var h = document.getElementsByTagName('head')[0]; h.appendChild(l);
-        };
-        cb('/stylesheets/bootstrap.min.css');
-        cb("/stylesheets/bootstrap-theme.min.css");
-        cb('/stylesheets/font-awesome.min.css');
-        cb('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
-        cb('https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700')
-        cb('/stylesheets/main.css');
-    </script>
-    <% include templates/preloader.ejs %>
-    <a name="top"></a>
-        <div class="container main">
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-responsive img-rabbit" src="/images/abouts.jpg">
-                </div>
-
-                <div class="col-md-6">
-                    <div class="row" style="margin-right: 10px;margin-left: 10px;">
-                    <a href="/" class="btn btn-rabbit back col-sm-3"> <i class="fa fa-home" aria-hidden="true"></i> Home </a> <a href="/activities" class="btn btn-rabbit forward col-sm-offset-3"> Activities<i class="fa fa-briefcase"
-                                                                                                                                                                                                                 aria-hidden="true"></i></a></div>
-                    <div id="watermark">
-                        <h2 class="page-title text-center"><%= title %></h2>
-                        <div class="marker"><%= marker %></div>
-                    </div>
-                    <p class='subtitle'>Hi, I am Barnabas, a Windows and Web developer from Koforidua, Ghana. I am passionate about development, interaction, and effecting change through STEM. I love to teach, and walk students through simple building blocks of algorithms. I also love to build lesson examples to help beginners understand certain programming languages and conventions.
-                    </p>
-                    <p class="info">I've long had a dream to transform Africa by empowering youth through technology. I'm a self-taught programmer with a passion for Arduino powered Maker Projects. When I'm not coding or hacking together independent projects, you can usually find me working for <a href="http://elite-education.org">Emerging Leaders in Technology and Engineering (ELiTE)</a>, the US based non-profit that first introduced me to engineering. At <a href="http://elite-education.org">ELiTE</a>, we use Raspberry Pi laptops to assemble portable computer labs, bringing computer science and open source software to communities that can benefit most from this developer community.</p>
-                    <% include templates/social.ejs %>
-                </div>
-
-            </div>
-            <% include templates/footer.ejs %>
+</head>
+<body>
+<script>
+    var cb = function (href) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        var h = document.getElementsByTagName('head')[0];
+        h.appendChild(l);
+    };
+    cb('/stylesheets/bootstrap.min.css');
+    cb("/stylesheets/bootstrap-theme.min.css");
+    cb('/stylesheets/font-awesome.min.css');
+    cb('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
+    cb('https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700')
+    cb('/stylesheets/main.css');
+</script>
+<% include templates/preloader.ejs %>
+<a name="top"></a>
+<div class="container main">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-responsive img-rabbit" src="/images/abouts.jpg">
         </div>
 
+        <div class="col-md-6">
+            <div class="row" style="margin-right: 10px;margin-left: 10px;">
+                <a href="/" class="btn btn-rabbit back col-sm-3"> <i class="fa fa-home" aria-hidden="true"></i> Home
+                </a> <a href="/activities" class="btn btn-rabbit forward col-sm-offset-3"> Activities<i
+                            class="fa fa-briefcase"
+                            aria-hidden="true"></i></a></div>
+            <div id="watermark">
+                <h2 class="page-title text-center"><%= title %></h2>
+                <div class="marker"><%= marker %></div>
+            </div>
+            <p class='subtitle'>Hi, I am Barnabas, a Windows and Web developer from Koforidua, Ghana. I am passionate
+                about development, interaction, and effecting change through STEM. I love to teach, and walk students
+                through simple building blocks of algorithms. I also love to build lesson examples to help beginners
+                understand certain programming languages and conventions.
+            </p>
+            <p class="info">I've long had a dream to transform Africa by empowering youth through technology. I'm a
+                self-taught programmer with a passion for Arduino powered Maker Projects. When I'm not coding or hacking
+                together independent projects, you can usually find me working for <a href="http://elite-education.org">Emerging
+                    Leaders in Technology and Engineering (ELiTE)</a>, the US based non-profit that first introduced me
+                to engineering. At <a href="http://elite-education.org">ELiTE</a>, we use Raspberry Pi laptops to
+                assemble portable computer labs, bringing computer science and open source software to communities that
+                can benefit most from this developer community.</p>
+            <% include templates/social.ejs %>
+        </div>
+
+    </div>
+    <% include templates/footer.ejs %>
+</div>
 
 
-
-        <!-- JS -->
-
-
-
-        <script src="/javascripts/bootstrap.min.js"></script>
-    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+<!-- JS -->
+<script src="/javascripts/jquery-3.1.0.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
 
 
-        <!--Google Analytics-->
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!--Google Analytics-->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-87349035-1', 'auto');
-            ga('send', 'pageview');
-        </script>
+    ga('create', 'UA-87349035-1', 'auto');
+    ga('send', 'pageview');
+</script>
 
 
-
-    </body>
+</body>
 </html>

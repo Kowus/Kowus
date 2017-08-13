@@ -22,7 +22,7 @@ var createBlog = require('./routes/createBlog');
 var events =  require('./routes/events');
 
 
-app.locals.links = require('./social-links.json')
+app.locals.links = require('./social-links.json');
 
 // Sitemaps
 var sitemap = sm.createSitemap({
