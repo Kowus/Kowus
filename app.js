@@ -12,6 +12,7 @@ var compression = require('compression');
 
 var app = express();
 app.use(compression());
+require('dotenv').config();
 
 var index = require('./routes/index');
 var about = require('./routes/about');
