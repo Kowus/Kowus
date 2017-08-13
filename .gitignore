@@ -42,3 +42,4 @@ public/posts/corner.txt
 .vscode
 *.iml
 .env
+bin/newrelic_agent.log
