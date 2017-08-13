@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var Blog = require('./blog.model');
+var Blog = require('../models/blog.model');
 /*
 var Dropbox = require('dropbox');
 var dbx = new Dropbox({accessToken:'YyHAryjXCUsAAAAAAAAAMGuy13MV5_zjNTdRTdcrwQ1Bv1GXycbkNOCCFT_-ciGe'});

@@ -65,7 +65,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/about', about);
-app.use('/work', work);
+app.use('/activities', work);
 app.use('/blog', blog);
 app.use('/add/blog', createBlog);
 app.use('/events', events);

@@ -5,7 +5,8 @@ var ActivitySchema = new mongoose.Schema({
     description:String,
     venue:{
         name:String, x_cord:Number, y_cord:Number
-    }
+    },
+    url:String
 });
 
 module.exports = mongoose.model('activity', ActivitySchema);

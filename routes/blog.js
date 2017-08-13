@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Blog = require('./blog.model');
+var Blog = require('../models/blog.model');
 var db = process.env.MONGODB_URL_KOWUS;
 mongoose.connect(db);
 var moment = require('moment');
