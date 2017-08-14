@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
             return res.render('error', {error: err, message: err.message})
         }
         results.forEach(function (item, index, array) {
-            var unique = moment(Date(results[index].date)).fromNow();
+            var unique = moment(results[index].date).fromNow();
             item.date = unique;
             if (index === array.length - 1) {
                 res.render('blog-dash',
@@ -52,7 +52,7 @@ router.get('/title/:blog_title', function (req, res) {
         if (err) {
             return console.log('an error has occurred' + err);
         }
-        blog.date = moment(Date(blog.date)).format("dddd, MMMM Do YYYY");
+        blog.date = moment(blog.date).format("dddd, MMMM Do YYYY");
         res.render('blog', {blog: blog})
     });
 });
@@ -63,7 +63,7 @@ router.get('/id/:blog_id', function (req, res) {
         if (err) {
             return console.log('an error has occurred' + err);
         }
-        blog.date = moment(Date(blog.date)).format("dddd, MMMM Do YYYY");
+        blog.date = moment(blog.date).format("dddd, MMMM Do YYYY");
         res.render('blog', {blog: blog})
     });
 });

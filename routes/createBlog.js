@@ -28,7 +28,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.post('/Nlw19i39Iw2', function (req, res) {
+router.post('/create-blog', function (req, res) {
     // console.log(req.body);
     var newBlog = new Blog();
 

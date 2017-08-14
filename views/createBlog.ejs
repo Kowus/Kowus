@@ -1,151 +1,173 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="work">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title><%= title %></title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title><%= title %></title>
 
-        <!--css here-->
+    <!--css here-->
 
-        <link rel="stylesheet" type="text/css" href="">
-        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-        <link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
-        <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
-        <link href="/stylesheets/main.css" rel="stylesheet">
-        <!--<link rel="icon" href="/images/logo1.png">-->
+    <link rel="stylesheet" type="text/css" href="">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=rllixmhtwfwhfrwip425rdwogb2uw0uji0dicejj2gjvqzqm"></script>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700" rel="stylesheet">
+    <link href="/stylesheets/main.css" rel="stylesheet">
+    <!--<link rel="icon" href="/images/logo1.png">-->
 
-        <!--angular js-->
+    <!--angular js-->
 
-        <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
-        <script type="text/javascript" src="/javascripts/app/app.js"></script>
-        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>-->
-        <script type="text/javascript" src="/javascripts/app/angular-sanitize.js"></script>
-        <script>
-            tinymce.init({
-                selector: '#mytextarea',
-                plugins : 'advlist autolink link image lists charmap print preview'
-            });
-        </script>
-    </head>
-    <body ng-controller="CreateBlogController as BlogCreator">
-        <a name="top"></a>
-        <div class="container main">
-            <div class="row">
-                <div class="col-md-6" style="padding-top: 60px;" ng-show="BlogCreator.vis === 1">
-                    <div class="modal-header">
-                        <h3 ng-bind="BlogCreator.bloga.title" style="text-transform: capitalize; text-decoration: underline;"></h3>
-                        <p ng-bind="BlogCreator.bloga.description" class="subtitle"></p>
-                        <small ng-bind="BlogCreator.bloga.categories" style="text-transform: uppercase;"></small>
-                    </div>
-                    <div ng-bind-html="BlogCreator.bloga.content"></div>
-                </div>
-                <div class="col-md-6" style="padding-top: 60px;" ng-show="BlogCreator.vis === 2">
-                    <div class="modal-header">
-                        <h3 ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].title" style="text-transform: capitalize; text-decoration: underline;"></h3>
-                        <p ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].description" class="subtitle"></p>
-                        <small ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].categories" style="text-transform: uppercase;"></small>
-                    </div>
-                    <div ng-bind-html="BlogCreator.bloga2[BlogCreator.blogNum].content"></div>
-                </div>
+    <script type="text/javascript" src="/javascripts/app/angular.min.js"></script>
+    <script type="text/javascript" src="/javascripts/app/app.js"></script>
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>-->
+    <script type="text/javascript" src="/javascripts/app/angular-sanitize.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#content',
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright ' +
+            'alignjustify | bullist numlist outdent indent | link image code insertfile',
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css']
+        });
+    </script>
+</head>
+<body ng-controller="CreateBlogController as BlogCreator">
+<% include templates/preloader.ejs %>
+<a name="top"></a>
+<div class="container main">
+    <div class="row">
+        <div class="col-md-6" style="padding-top: 60px;" ng-show="BlogCreator.vis === 1">
+            <div class="modal-header">
+                <h3 ng-bind="BlogCreator.bloga.title"
+                    style="text-transform: capitalize; text-decoration: underline;"></h3>
+                <p ng-bind="BlogCreator.bloga.description" class="subtitle"></p>
+                <small ng-bind="BlogCreator.bloga.categories" style="text-transform: uppercase;"></small>
+            </div>
+            <div ng-bind-html="BlogCreator.bloga.content"></div>
+        </div>
+        <div class="col-md-6" style="padding-top: 60px;" ng-show="BlogCreator.vis === 2">
+            <div class="modal-header">
+                <h3 ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].title"
+                    style="text-transform: capitalize; text-decoration: underline;"></h3>
+                <p ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].description" class="subtitle"></p>
+                <small ng-bind="BlogCreator.bloga2[BlogCreator.blogNum].categories"
+                       style="text-transform: uppercase;"></small>
+            </div>
+            <div ng-bind-html="BlogCreator.bloga2[BlogCreator.blogNum].content"></div>
+        </div>
 
-                <div class="col-md-6">
-                    <a href="/blog" class="btn btn-rabbit back"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog
-                    </a> <a
-                            style="float: right;" href="/" class="btn btn-rabbit forward"> <%= next %><i
-                                class="fa fa-home" aria-hidden="true"></i></a>
-                    <div><a href="" ng-click="BlogCreator.setVis(1)">Add</a> <a href="" ng-click="BlogCreator.setVis(2)
+        <div class="col-md-6">
+            <a href="/blog" class="btn btn-rabbit back"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog
+            </a> <a
+                    style="float: right;" href="/" class="btn btn-rabbit forward"> <%= next %><i
+                        class="fa fa-home" aria-hidden="true"></i></a>
+            <div><a href="" ng-click="BlogCreator.setVis(1)">Add</a> <a href="" ng-click="BlogCreator.setVis(2)
 ">Update</a></div>
-                    <div id="watermark">
-                        <h2 class="page-title text-center" ng-show="BlogCreator.vis === 0"><%= title %></h2>
-                        <h2 class="page-title text-center" ng-show="BlogCreator.vis === 1">Add a blog</h2>
-                        <h2 class="page-title text-center" ng-show="BlogCreator.vis === 2">Update a blog</h2>
-                        <div class="marker"><%= marker %></div>
-                    </div>
+            <div id="watermark">
+                <h2 class="page-title text-center" ng-show="BlogCreator.vis === 0"><%= title %></h2>
+                <h2 class="page-title text-center" ng-show="BlogCreator.vis === 1">Add a blog</h2>
+                <h2 class="page-title text-center" ng-show="BlogCreator.vis === 2">Update a blog</h2>
+                <div class="marker"><%= marker %></div>
+            </div>
 
-                    <!--Add A Blog Post-->
-                    <form method="post" class="form-group" name="blogForm" ng-model="blogForm" ng-submit="BlogCreator.sendPosts
-                    ()" ng-show="BlogCreator.vis === 1">
-                        <fieldset>
-                            <input class="form-control" autofocus placeholder="title" name="title" ng-model="BlogCreator.bloga
+            <!--Add A Blog Post-->
+            <!--<form method="post" class="form-group" name="blogForm" ng-model="blogForm" ng-submit="BlogCreator.sendPosts
+            ()" ng-show="BlogCreator.vis === 1">-->
+            <form method="post" class="form-group" name="blogForm" ng-model="blogForm" action="/add/blog/create-blog"
+                  ng-show="BlogCreator.vis === 1">
+                <fieldset>
+                    <input class="form-control" autofocus placeholder="title" name="title" ng-model="BlogCreator.bloga
                             .title" required>
-                        </fieldset>
-                        <fieldset>
-                            <p><input class="form-control" placeholder="description" name="description" ng-model="BlogCreator.bloga.description" required></p>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <select name="categories" ng-model="BlogCreator.bloga.categories" required>
-                                <option value="">Select A Category</option>
-                                <option value="society">Society</option>
-                                <option value="muse">Muse</option>
-                                <option value="inspiration">Inspiration</option>
-                                <option value="technology">Technology</option>
-                            </select>
-                            <textarea class="form-control" placeholder="content" name="content" rows="15" ng-model="BlogCreator.bloga.content" required id="mytextarea"></textarea>
-</fieldset>
-                        <button type="submit" class="btn btn-rabbit">Submit</button>
-                    </form>
+                </fieldset>
+                <fieldset>
+                    <p><input class="form-control" placeholder="description" name="description"
+                              ng-model="BlogCreator.bloga.description" required></p>
+                </fieldset>
+                <fieldset class="form-group">
+                    <select name="categories" ng-model="BlogCreator.bloga.categories" required>
+                        <option value="">Select A Category</option>
+                        <option value="society">Society</option>
+                        <option value="muse">Muse</option>
+                        <option value="inspiration">Inspiration</option>
+                        <option value="technology">Technology</option>
+                    </select>
+                    <textarea class="form-control" placeholder="content" name="content" rows="15"
+                              ng-model="BlogCreator.bloga.content" id="content"></textarea>
+                </fieldset>
+                <button type="submit" class="btn btn-rabbit">Submit</button>
+            </form>
 
 
-
-<div ng-show="BlogCreator.vis === 2">
-                    <ul class="list-unstyled">
-                        <li ng-repeat="blog in BlogCreator.bloga2"><a href="#" ng-click="BlogCreator.setBlogNum(BlogCreator.bloga2
+            <div ng-show="BlogCreator.vis === 2">
+                <ul class="list-unstyled">
+                    <li ng-repeat="blog in BlogCreator.bloga2"><a href="#" ng-click="BlogCreator.setBlogNum(BlogCreator.bloga2
                             .indexOf
                             (blog))
 " ng-bind="blog.title"></a></li>
-                    </ul>
-</div>
-                    <!--Todo: let angular handle updates-->
+                </ul>
+            </div>
+            <!--Todo: let angular handle updates-->
 
-                    <!--Update A Blog Post-->
-                    <!--<form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" ng-submit="BlogCreator.updatePosts()" ng-show="BlogCreator.vis === 2">-->
-                    <form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" action="/add/blog/Sjkqin28hn" ng-show="BlogCreator.vis === 2">
-                        <fieldset>
-                            <input id="title" class="form-control" autofocus name="title" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].title" required>
-                        </fieldset>
-                        <fieldset>
-                            <p><input class="form-control" name="description" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].description" required></p>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <select name="categories" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].categories" required>
-                                <option value="">Select A Category</option>
-                                <option value="society">Society</option>
-                                <option value="muse">Muse</option>
-                                <option value="inspiration">Inspiration</option>
-                                <option value="technology">Technology</option>
-                            </select>
-                            <textarea class="form-control" name="content" rows="15" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].content" required></textarea>
-                        </fieldset>
-                        <fieldset><label>Id: <span ng-bind="BlogCreator.bloga2[BlogCreator.blogNum]
+            <!--Update A Blog Post-->
+            <!--<form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" ng-submit="BlogCreator.updatePosts()" ng-show="BlogCreator.vis === 2">-->
+            <form method="post" class="form-group" name="blogForm2" ng-model="blogForm2" action="/add/blog/Sjkqin28hn"
+                  ng-show="BlogCreator.vis === 2">
+                <fieldset>
+                    <input id="title" class="form-control" autofocus name="title"
+                           ng-model="BlogCreator.bloga2[BlogCreator.blogNum].title" required>
+                </fieldset>
+                <fieldset>
+                    <p><input class="form-control" name="description"
+                              ng-model="BlogCreator.bloga2[BlogCreator.blogNum].description" required></p>
+                </fieldset>
+                <fieldset class="form-group">
+                    <select name="categories" ng-model="BlogCreator.bloga2[BlogCreator.blogNum].categories" required>
+                        <option value="">Select A Category</option>
+                        <option value="society">Society</option>
+                        <option value="muse">Muse</option>
+                        <option value="inspiration">Inspiration</option>
+                        <option value="technology">Technology</option>
+                    </select>
+                    <textarea class="form-control" name="content" rows="15"
+                              ng-model="BlogCreator.bloga2[BlogCreator.blogNum].content" required></textarea>
+                </fieldset>
+                <fieldset><label>Id: <span ng-bind="BlogCreator.bloga2[BlogCreator.blogNum]
                         ._id"></span></label> <input class="form-control hidden" name="_id" ng-model="BlogCreator.bloga2[BlogCreator.blogNum]
                         ._id"></fieldset>
-                        <button type="submit" class="btn btn-rabbit">Submit</button>
-                    </form>
-                </div>
-            </div>
+                <button type="submit" class="btn btn-rabbit">Submit</button>
+            </form>
         </div>
-        <form method="post" action="/logout">
-            <button type="submit">logout</button>
-        </form>
-        <div>
-            <% include templates/footer.ejs %>
-        </div>
+    </div>
+</div>
+<form method="post" action="/logout">
+    <button type="submit">logout</button>
+</form>
+<div>
+    <% include templates/footer.ejs %>
+</div>
 
 
-        <!-- JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
-        <script src="/javascripts/jquery-3.1.0.min.js"></script>
-        <script src="/javascripts/bootstrap.min.js"></script>
-        <script src="/javascripts/owl.carousel.min.js"></script>
-        <script src="/javascripts/main.js"></script>
+<script src="/javascripts/jquery-3.1.0.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/owl.carousel.min.js"></script>
+<script src="/javascripts/main.js"></script>
 
 
-    </body>
+</body>
 </html>
