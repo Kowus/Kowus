@@ -1,5 +1,6 @@
 
 $(function(){$("#owl-demo").owlCarousel({slideSpeed:2000,paginationSpeed:2000,singleItem:true,autoplay:3000,loop:true,nav:true,items:1,navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],dots:false});$('#404Page').height($(window).height());$('#contactlink').click(function () {$('#contact').toggleClass("ran raner");});});
+/*
 var appCache = window.applicationCache;
 appCache.update();
 window.addEventListener('load', function(e) {
@@ -48,3 +49,4 @@ appCache.addEventListener('progress', handleCacheEvent, false);
 
 // Fired when the manifest resources have been newly redownloaded.
 appCache.addEventListener('updateready', handleCacheEvent, false);
+*/

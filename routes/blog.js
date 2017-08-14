@@ -30,11 +30,36 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.get('/J2nmnk209olq1RWfiq', function (req, res) {
+    // console.log('getting all blogs');
+    Blog.find({}).exec(function (err, results) {
+        if (err) {
+            res.send('an error has occurred' + err);
+        }
+        else {
+            console.log("loaded blogs");
+            res.json(results);
+        }
+    });
+});
+
+
 
 
 router.get('/title/:blog_title', function (req, res) {
 
     Blog.findOne({permalink: req.params.blog_title}).exec(function (err, blog) {
+        if (err) {
+            return console.log('an error has occurred' + err);
+        }
+        blog.date = moment(Date(blog.date)).format("dddd, MMMM Do YYYY");
+        res.render('blog', {blog: blog})
+    });
+});
+
+router.get('/id/:blog_id', function (req, res) {
+
+    Blog.findOne({_id: req.params.blog_id}).exec(function (err, blog) {
         if (err) {
             return console.log('an error has occurred' + err);
         }

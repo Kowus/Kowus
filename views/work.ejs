@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="work" manifest="/off.appcache">
+<html lang="en" ng-app="work">
 
 <head>
     <meta charset="utf-8">
@@ -70,11 +70,20 @@
             </div>
 
             <div>
+                <h4>Here are a few projects and lessons I have worked on.</h4>
+                <hr class="small">
                 <ul class="list-unstyled">
                     <% projects.forEach(function (project) { %>
-                    <li><a href="<%= project.url %>"><%= project.name %></a></li>
+                    <li><a href="<%= project.url %>" target="_blank" style="font-style: italic;
+                    font-size: 17px; font-family: 'Times New Roman';
+                    color:
+                    #5e5e5e"><%=
+                                project.name
+                            %>: <small style="padding-left: 7px;color: rgba(0,0,0,0.4);"><%=project
+                                        .description%></small></a></li>
                     <% }) %>
                 </ul>
+
             </div>
         </div>
         <br>
