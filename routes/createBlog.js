@@ -16,7 +16,7 @@ var dbx = new Dropbox({accessToken:'YyHAryjXCUsAAAAAAAAAMGuy13MV5_zjNTdRTdcrwQ1B
 /* GET Blog page*/
 
 router.get('/', function (req, res, next) {
-    res.render('createBlog',
+    res.render('add-blog',
         {
             title: "Create A New Blog",
             marker: "blog",

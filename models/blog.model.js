@@ -14,11 +14,10 @@ var BlogSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     categories: {
-        type: String,
+        type: Array,
         required: true
     },
     content: {

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Barnabas Nomo">
+
+    <title>Create A Blog</title>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=rllixmhtwfwhfrwip425rdwogb2uw0uji0dicejj2gjvqzqm"></script>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/stylesheets/main.css" rel="stylesheet">
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="/stylesheets/clean-blog.min.css" rel="stylesheet">
+    <script>
+        tinymce.init({
+            selector: '#content',
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright ' +
+            'alignjustify | bullist numlist outdent indent | link image code insertfile',
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css']
+        });
+    </script>
+
+</head>
+<body style="overflow-x: hidden">
+<% include templates/preloader.ejs %>
+<header class="intro-header text-center"
+        style="background-image: url('/images/post-bg.jpg'); margin: 0 auto; width: 80vw;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1 style="text-transform: capitalize;">Add a Blog</h1>
+                    <h2 class="subheading">Welcome</h2>
+                    <span class="meta">Put Date Here</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+    <div class="container" style="background-color: #fff">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Title</label>
+                            <input type="text" class="form-control" placeholder="Title" id="title" required data-validation-required-message="Please enter a title.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Description</label>
+                            <input type="text" class="form-control" placeholder="Description" id="description" required data-validation-required-message="Please enter description.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls form-inline">
+                            <label>Categories</label>
+                            <input type="checkbox" class="form-control" placeholder="Society" id="categories" required data-validation-required-message="Please choose a category."><small> Society</small>
+                            <input type="checkbox" class="form-control" placeholder="Society" id="categories" required data-validation-required-message="Please choose a category."><small> Society</small>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Content</label>
+                            <textarea rows="5" class="form-control" placeholder="Content" id="content"
+                                      name="content"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+
+        <div class="col-sm-12 text-center" style="background-color:#fff;">
+            <% include templates/social.ejs %>
+            <p class="lead" style="margin-top: 0;">
+                <a href="#top" class="footer-text" style="color: darkred; font-size: small; text-decoration: none;">
+                    <i class="fa fa-globe" style="margin-right: 10px;"></i> The World Is Yours
+                </a>
+            </p>
+        </div>
+    </div>
+
+
+</article>
+
+<script src="/javascripts/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/javascripts/bootstrap.min.js"></script>
+
+<script src="/javascripts/jqBootstrapValidation.js"></script>
+
+<script src="/javascripts/clean-blog.min.js"></script>
+</body>
+</html>
