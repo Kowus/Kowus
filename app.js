@@ -20,10 +20,13 @@ var about = require('./routes/about');
 var work = require('./routes/work');
 var blog = require('./routes/blog');
 var createBlog = require('./routes/createBlog');
-var events =  require('./routes/events');
+var events = require('./routes/events');
 
-
-app.locals.links = require('./social-links.json');
+var curyear = new Date().getFullYear().toString()
+app.locals = {
+    links: require('./social-links.json'),
+    Year: curyear
+}
 
 // Sitemaps
 var sitemap = sm.createSitemap({
@@ -64,15 +67,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 app.use('/', index);
 app.use('/about', about);
 app.use('/activities', work);
 app.use('/blog', blog);
 app.use('/add/blog', createBlog);
 app.use('/events', events);
-
-
 
 
 // catch 404 and forward to error handler
