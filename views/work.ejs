@@ -40,15 +40,7 @@
             <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit"
                  style="background-color: black; max-height:80vh; overflow-y: hidden;">
 
-                <!--<figure ng-repeat="pic in pictrl.pics" style="object-fit: cover;">
-                    <img id="workPic" ng-src="{{pic.image}}" style="object-fit:cover;height: 60vh;">
-                    <figcaption>
-                        <h3 ng-bind="pic.name"></h3>
-                        <span id="picDes" ng-bind="pic.description"></span>
-                    </figcaption>
-                </figure>
--->
-                <% featured.forEach(function (item) { %>
+                         <% featured.forEach(function (item) { %>
                     <figure style="object-fit: cover;">
                         <img id="workPic" src="<%=item.image%>" style="object-fit: cover;height: 60vh;">
                         <figcaption>
