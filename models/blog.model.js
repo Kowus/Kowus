@@ -31,6 +31,9 @@ var BlogSchema = new Schema({
     author: {
         type: String,
         default: 'Barnabas Nomo'
+    }, publish:{
+        type:Boolean,
+        default: false
     }
 
 });

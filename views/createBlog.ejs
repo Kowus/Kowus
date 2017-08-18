@@ -25,7 +25,7 @@
     <script type="text/javascript" src="/javascripts/app/app.js"></script>
     <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>-->
     <script type="text/javascript" src="/javascripts/app/angular-sanitize.js"></script>
-    <script>
+    <!--<script>
         tinymce.init({
             selector: '#content',
             height: 500,
@@ -41,7 +41,7 @@
                 '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
                 '//www.tinymce.com/css/codepen.min.css']
         });
-    </script>
+    </script>-->
 </head>
 <body ng-controller="CreateBlogController as BlogCreator">
 <% include templates/preloader.ejs %>
@@ -83,10 +83,10 @@
             </div>
 
             <!--Add A Blog Post-->
-            <!--<form method="post" class="form-group" name="blogForm" ng-model="blogForm" ng-submit="BlogCreator.sendPosts
-            ()" ng-show="BlogCreator.vis === 1">-->
-            <form method="post" class="form-group" name="blogForm" ng-model="blogForm" action="/add/blog/create-blog"
-                  ng-show="BlogCreator.vis === 1">
+            <form method="post" class="form-group" name="blogForm" ng-model="blogForm" ng-submit="BlogCreator.sendPosts
+            ()" ng-show="BlogCreator.vis === 1">
+            <!--<form method="post" class="form-group" name="blogForm" ng-model="blogForm" action="/add/blog/create-blog"
+                  ng-show="BlogCreator.vis === 1">-->
                 <fieldset>
                     <input class="form-control" autofocus placeholder="title" name="title" ng-model="BlogCreator.bloga
                             .title" required>

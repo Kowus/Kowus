@@ -1,3 +1,4 @@
+require('dotenv').config();
 require('newrelic');
 var express = require('express');
 var path = require('path');
@@ -12,7 +13,7 @@ var compression = require('compression');
 
 var app = express();
 app.use(compression());
-require('dotenv').config();
+
 
 var index = require('./routes/index');
 var about = require('./routes/about');

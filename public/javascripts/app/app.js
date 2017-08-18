@@ -85,7 +85,7 @@
 			url:         'http://www.oususvchi.com'
 		}, {
 			name:        'Hour Of Code 2015',
-			description: 'Building Websites With Modern Frameworks',
+			description: 'Hour of Web Session',
 			image:       '/images/hourOFCode15.jpg',
 			url:         '#'
 		}, {
@@ -93,7 +93,12 @@
 			description: 'Mobile Computer Lab Sessions',
 			image:       '/images/karate-pose.jpg',
 			url:         '#'
-		}
+		},{
+            name:        'A Thousand Words',
+            description: 'www.qlimax.com',
+            image:       '/images/insights.JPG',
+            url:         '#'
+        }
 	];
 	var blogG = [];
 	

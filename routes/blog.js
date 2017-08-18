@@ -9,7 +9,6 @@ var moment = require('moment');
 
 router.get('/', function (req, res, next) {
     Blog.find({}).exec(function (err, results) {
-        var dumres = results;
         if (err) {
             return res.render('error', {error: err, message: err.message})
         }
