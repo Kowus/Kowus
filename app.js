@@ -10,6 +10,11 @@ var mongoose = require('mongoose');
 var sm = require('sitemap');
 var compression = require('compression');
 // var Dropbox = require('dropbox');
+var passport = require('passport'),
+    flash = require('connect-flash'),
+    session = require('express-session');
+var db = process.env.MONGODB_URL_KOWUS;
+mongoose.connect(db);
 
 var app = express();
 app.use(compression());
@@ -22,11 +27,11 @@ var blog = require('./routes/blog');
 var createBlog = require('./routes/createBlog');
 var events = require('./routes/events');
 
-var curyear = new Date().getFullYear().toString()
+var curyear = new Date().getFullYear().toString();
 app.locals = {
     links: require('./social-links.json'),
     Year: curyear
-}
+};
 
 // Sitemaps
 var sitemap = sm.createSitemap({
@@ -52,6 +57,8 @@ app.get('/sitemap.xml', function (req, res) {
     });
 });
 
+// passport
+require('./config/passport')(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -65,6 +72,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret:process.env.SESSION_SECRET}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 
 
 app.use('/', index);
