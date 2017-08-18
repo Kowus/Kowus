@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Life In A Pixel",
+    "description": "www.oususvchi.com",
+    "image": "/images/oususvchi.jpg",
+    "url": "http://www.oususvchi.com"
+  },
+  {
+    "name": "Hour Of Code 2015",
+    "description": "Hour of Web Session",
+    "image": "/images/hourOFCode15.jpg",
+    "url": "#"
+  },
+  {
+    "name": "Kodeforidua",
+    "description": "Mobile Computer Lab Sessions",
+    "image": "/images/karate-pose.jpg",
+    "url": "#"
+  },
+  {
+    "name": "A Thousand Words",
+    "description": "www.qlimax.com",
+    "image": "/images/insights.JPG",
+    "url": "#"
+  }
+]

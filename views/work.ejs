@@ -31,7 +31,7 @@
             data-ac="274c8d0f5a3d4e6a95fef74e72441bf8"></script>
 </head>
 
-<body ng-controller="PicController as pictrl" style="background-color: white; max-height: 100vh; overflow-x: hidden;">
+<body style="background-color: white; max-height: 100vh; overflow-x: hidden;">
 <% include templates/preloader.ejs %>
 <a name="top"></a>
 <div class="container main mainer" style="margin-bottom: 10px;">
@@ -40,14 +40,23 @@
             <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit"
                  style="background-color: black; max-height:80vh; overflow-y: hidden;">
 
-                <figure ng-repeat="pic in pictrl.pics" style="object-fit: cover;">
+                <!--<figure ng-repeat="pic in pictrl.pics" style="object-fit: cover;">
                     <img id="workPic" ng-src="{{pic.image}}" style="object-fit:cover;height: 60vh;">
                     <figcaption>
                         <h3 ng-bind="pic.name"></h3>
                         <span id="picDes" ng-bind="pic.description"></span>
                     </figcaption>
                 </figure>
-
+-->
+                <% featured.forEach(function (item) { %>
+                    <figure style="object-fit: cover;">
+                        <img id="workPic" src="<%=item.image%>" style="object-fit: cover;height: 60vh;">
+                        <figcaption>
+                            <h3><%=item.name%></h3>
+                            <span id="picDes"><%=item.description%></span>
+                        </figcaption>
+                    </figure>
+                <% }) %>
 
             </div>
         </div>
