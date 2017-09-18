@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 let fs = require('fs'), path = require('path');
 const Blog = require('../models/blog.model');
 const axios = require('axios');
@@ -11,6 +10,24 @@ const redis_cli = redis.createClient(redisURI, {no_ready_check: true});
 redis_cli.on('error', function (err) {
     console.log("Error " + err);
 });
+var mutilpart = require('connect-multiparty');
+var uploader = require('express-fileuploader');
+var S3Strategy = require('express-fileuploader-s3');
+
+router.use('/upload/image', mutilpart());
+
+uploader.use(new uploader.S3Strategy({
+    uploadPath: '/uploads',
+    headers: {
+        'x-amz-acl': 'public-read'
+    },
+    options: {
+        key: process.env.S3_KEY_ID,
+        secret: process.env.S3_SECRET_ACCESS_KEY,
+        bucket: process.env.S3_BUCKET_NAME
+    }
+}));
+
 
 router.get('/', function (req, res, next) {
 
@@ -102,5 +119,13 @@ router.post('/update-blog', function (req, res) {
 
 });
 
+router.post('/upload/image', function(req, res, next) {
+    uploader.upload('s3', req.files['images'], function(err, files) {
+        if (err) {
+            return next(err);
+        }
+        res.send(JSON.stringify(files));
+    });
+});
 
 module.exports = router;
