@@ -1,36 +1,70 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var fs = require('fs');
-var bodyParser = require('body-parser');
-var Blog = require('../models/blog.model');
-/*
-var Dropbox = require('dropbox');
-var dbx = new Dropbox({accessToken:'YyHAryjXCUsAAAAAAAAAMGuy13MV5_zjNTdRTdcrwQ1Bv1GXycbkNOCCFT_-ciGe'});
-*/
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+let fs = require('fs'), path = require('path');
+const Blog = require('../models/blog.model');
+const axios = require('axios');
+const redis = require('redis');
+const moment = require('moment');
+const mime = require('mime');
+const redisURI = process.env.REDIS_URL || '';
+const redis_cli = redis.createClient(redisURI, {no_ready_check: true});
+const firebase = require('firebase');
+const fileUpload = require('express-fileupload');
+const projectId = "bombaclat-baracuda";
+const keyFileName = "./bombaclat-baracuda-firebase-adminsdk-m622c-e7bcea0b15.json";
+const googleStorage = require('@google-cloud/storage');
+const storage = googleStorage({
+    projectId, keyFileName
+});
+const bucketName = `${projectId}.appspot.com`;
 
+const bucket = storage.bucket(bucketName);
 
-// router.use(bodyParser.json());
-// router.use(bodyParser.urlencoded({ extended: false }));
-
-/* GET Blog page*/
+redis_cli.on('error', function (err) {
+    console.log("Error " + err);
+});
+router.use(fileUpload({
+    limits: { fileSize: 5 * 1024 * 1024 },
+}));
 
 router.get('/', function (req, res, next) {
-    res.render('createBlog',
-        {
-            title: "Create A New Blog",
-            marker: "blog",
-            next: "Home",
-            horror: ''
-        });
 
-
+    redis_cli.get(moment(new Date()).format("YYYY-MM-DD"), function (error, result) {
+        if (result) {
+            res.render('add-blog',
+                {
+                    title: "Create A New Blog",
+                    marker: "blog",
+                    next: "Home",
+                    horror: '',
+                    quote: JSON.parse(result),
+                    user: req.user
+                });
+        } else {
+            axios.get('http://quotes.rest/qod.json').then(function (response) {
+                const myQuote = response.data.contents.quotes[0];
+                redis_cli.setex(myQuote.date, 7200, JSON.stringify(myQuote));
+                res.render('add-blog',
+                    {
+                        title: "Create A New Blog",
+                        marker: "blog",
+                        next: "Home",
+                        horror: '',
+                        quote: myQuote,
+                        user: req.user
+                    });
+            }).catch(function (err) {
+                console.log(err.message);
+            });
+        }
+    });
 });
 
 
-router.post('/create-blog', function (req, res) {
+router.post('/create', function (req, res) {
     // console.log(req.body);
-    var newBlog = new Blog();
+    const newBlog = new Blog();
 
     newBlog.title = req.body.title;
     newBlog.permalink = newBlog.title.trim().toLowerCase().split(/[\s,.]+/).join('_');
@@ -38,6 +72,7 @@ router.post('/create-blog', function (req, res) {
     newBlog.categories = req.body.categories;
     newBlog.description = req.body.description;
     newBlog.date = new Date().toISOString();
+    newBlog.publish = req.body.publish === "yes";
 
     newBlog.save(function (err, blog) {
         if (err) {
@@ -47,7 +82,7 @@ router.post('/create-blog', function (req, res) {
         else {
             console.log(blog);
 
-            res.send("Success");
+            res.render("success", {message: 'successfully created: ' + blog.title});
         }
 
     });
@@ -57,8 +92,8 @@ router.post('/create-blog', function (req, res) {
      * */
 });
 
-router.post('/Sjkqin28hn', function (req, res) {
-    var reqBody = req.body;
+router.post('/update-blog', function (req, res) {
+    const reqBody = req.body;
     console.log("Update Blog: " + reqBody.title);
     Blog.findOneAndUpdate(
         {
@@ -82,5 +117,88 @@ router.post('/Sjkqin28hn', function (req, res) {
     );
 
 });
+/*
+router.post('/upload-file', multer.single('file'), function (req, res, next) {
+    const file = req.file;
+    if (file) {
+        uploadImageToStorage(file).then(function(success) {
+
+            res.status(200).send("S U C C E S S");
+            console.log('upload image');
+    }).catch(function(error)  {
+            console.error(error);
+    });
+    }
+});
+*/
+router.post('/upload-file', function (req, res, next) {
+    const file = req.files.image;
+    const uploadTo = `images/${file.name}`
+    if (file) {
+        fs.writeFile(`./uploads/${file.name}`, file.data, (err) => {
+            if (err) return console.error(err);
+            else {
+                console.log('The file has been saved!');
+                bucket.upload(`./uploads/${file.name}`, {
+                    destination: `images/${file.name}`,
+                    public: true,
+                    metadata: {contentType: file.mimetype, cacheControl: "public, max-age=300"}
+                }, function (err, myFile) {
+                    if (err) {
+                        res.json(req.files);
+                        return console.log(err);
+                    }
+                    console.log(createPublicFileURL(`images/${myFile}`));
+                    console.log(createPublicFileURL(`images/${file.name}`));
+                    res.send('success');
+                });
+            }
+        });
+
+
+    }
+});
 
 module.exports = router;
+
+
+function createPublicFileURL(storageName) {
+    return `http://storage.googleapis.com/${bucketName}/${encodeURIComponent(storageName)}`;
+
+}
+
+
+/**
+ * Upload the image file to Google Storage
+ * @param {File} file object that will be uploaded to Google Storage
+ */
+/*
+const uploadImageToStorage = (file) => {
+    let prom = new Promise((resolve, reject) => {
+        if (!file) {
+            reject('No image file');
+        }
+        let newFileName = `${file.originalname}_${Date.now()}`;
+
+        let fileUpload = bucket.file(newFileName);
+
+        const blobStream = fileUpload.createWriteStream({
+            metadata: {
+                contentType: file.mimetype
+            }
+        });
+
+        blobStream.on('error', (error) => {
+            reject('Something is wrong! Unable to upload at the moment.');
+        });
+
+        blobStream.on('finish', () => {
+            // The public URL can be used to directly access the file via HTTP.
+            const url = format(`https://storage.googleapis.com/${bucket.name}/${fileUpload.name}`);
+            resolve(url);
+        });
+
+        blobStream.end(file.buffer);
+    });
+    return prom;
+};*/

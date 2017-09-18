@@ -37,14 +37,15 @@
 <body style="overflow-x: hidden">
 <% include templates/preloader.ejs %>
 <header class="intro-header text-center"
-        style="background-image: url('/images/post-bg.jpg'); margin: 0 auto; width: 80vw;">
+        style="background-image: url(<%=quote.background%>); margin: 0 auto; width: 80vw; object-fit: cover;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1 style="text-transform: capitalize;">Add a Blog</h1>
-                    <h2 class="subheading">Welcome</h2>
-                    <span class="meta">Put Date Here</span>
+                    <h1 style="text-transform: capitalize;">Create a Blog</h1>
+                    <h2 class="subheading">Welcome <%=user.firstname%></h2>
+                    <p>Here is your <%= quote.title %> by <%=quote.author%></p>
+                    <span class="meta"><%= quote.quote %></span>
                 </div>
             </div>
         </div>
@@ -55,26 +56,26 @@
     <div class="container" style="background-color: #fff">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <form name="sentMessage" id="contactForm" novalidate>
+                <form name="sentMessage" id="contactForm" novalidate method="post" action="/!admin/dashboard/blog/create">
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Title</label>
-                            <input type="text" class="form-control" placeholder="Title" id="title" required data-validation-required-message="Please enter a title.">
+                            <input type="text" class="form-control" placeholder="Title" id="title" name="title" required data-validation-required-message="Please enter a title.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Description</label>
-                            <input type="text" class="form-control" placeholder="Description" id="description" required data-validation-required-message="Please enter description.">
+                            <input type="text" class="form-control" placeholder="Description" id="description" name="description" required data-validation-required-message="Please enter description.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls form-inline">
                             <label>Categories</label>
-                            <input type="checkbox" class="form-control" placeholder="Society" id="categories" required data-validation-required-message="Please choose a category."><small> Society</small>
-                            <input type="checkbox" class="form-control" placeholder="Society" id="categories" required data-validation-required-message="Please choose a category."><small> Society</small>
+                            <input type="checkbox" class="form-control" value="technology" name="categories" id="categories" required data-validation-required-message="Please choose a category."><small> Technology</small>
+                            <input type="checkbox" class="form-control" value="society" id="categories" name="categories" required data-validation-required-message="Please choose a category."><small> Society</small>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -86,20 +87,32 @@
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls form-inline">
+                            <label>Publish</label>
+                            <input type="radio" class="form-control" value="yes" name="publish" id="publish" required data-validation-required-message="Please choose a category."><small> Yes</small>
+                            <input type="radio" class="form-control" value="no" id="publish" name="publish" checked required data-validation-required-message="Please choose a category."><small> No</small>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
                     <br>
                     <div id="success"></div>
                     <div class="row">
                         <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-default">Send</button>
+                            <button type="submit" class="btn btn-default">Create</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        <h1>TEST!!!!</h1>
+        <form method="post" action="/!admin/dashboard/blog/upload-file" enctype="multipart/form-data">
+            <input type="file" class="form-control" name="image">
+            <input class="btn btn-success" type="submit" value="Submit">
+        </form>
         <hr>
 
         <div class="col-sm-12 text-center" style="background-color:#fff;">
-            <% include templates/social.ejs %>
             <p class="lead" style="margin-top: 0;">
                 <a href="#top" class="footer-text" style="color: darkred; font-size: small; text-decoration: none;">
                     <i class="fa fa-globe" style="margin-right: 10px;"></i> The World Is Yours
@@ -119,5 +132,6 @@
 <script src="/javascripts/jqBootstrapValidation.js"></script>
 
 <script src="/javascripts/clean-blog.min.js"></script>
+<script src="/javascripts/main.js"></script>
 </body>
 </html>

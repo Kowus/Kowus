@@ -9,13 +9,14 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var sm = require('sitemap');
 var compression = require('compression');
-// var Dropbox = require('dropbox');
 var passport = require('passport'),
     flash = require('connect-flash'),
     session = require('express-session');
 var db = process.env.MONGODB_URL_KOWUS;
 mongoose.connect(db);
-
+mongoose.connection.on('error', function (err) {
+    console.log("mongoose connection Error " + err);
+});
 var app = express();
 app.use(compression());
 
@@ -24,9 +25,7 @@ var index = require('./routes/index');
 var about = require('./routes/about');
 var work = require('./routes/work');
 var blog = require('./routes/blog');
-var createBlog = require('./routes/createBlog');
 var events = require('./routes/events');
-
 var curyear = new Date().getFullYear().toString();
 app.locals = {
     links: require('./social-links.json'),
@@ -78,12 +77,11 @@ app.use(passport.session());
 app.use(flash());
 
 
-
+require('./routes/admin')(app, passport);
 app.use('/', index);
 app.use('/about', about);
 app.use('/activities', work);
 app.use('/blog', blog);
-app.use('/add/blog', createBlog);
 app.use('/events', events);
 
 

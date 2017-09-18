@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Barnabas Nomo">
+    <link rel="icon" href="/images/logo1.ico">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Barnabas Nomo : Signup</title>
+</head>
+
+<body>
+
+<% include templates/preloader.ejs %>
+<a name="top"></a>
+<div class="container main">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-responsive img-rabbit my-img" src="/images/home_2.jpg">
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="logo">
+                <img src="/images/logo1.ico" height="200px">
+                <h4>Signup</h4>
+            </div>
+            <p class="home-description text-center">
+                <small class="site-heading"><%=message%></small>
+
+            <form class="form-group form-group-sm" method="post" action="/!admin/signup">
+                <fieldset class="form-group-sm">
+                    <input class="form-control" id="firstname" placeholder="Firstname" name="firstname">
+                    <input class="form-control" id="lastname" placeholder="Lastname" name="lastname">
+                    <input class="form-control" id="username" placeholder="Username" name="username">
+                    <input class="form-control" id="email" placeholder="Email" name="email" type="email">
+                    <input class="form-control" id="password" placeholder="Password" name="password" type="password">
+                </fieldset>
+                <fieldset class="btn-group btn-group-justified custom-btn" style="margin-top: 10px;">
+                    <a href="/!admin/login">Click here to login</a>
+                    <input class="col-xs-push-2 btn btn-info" type="submit" style="padding-left: 15px;" value="Submit">
+                </fieldset>
+            </form>
+            </p>
+
+        </div>
+    </div>
+    <% include templates/footer.ejs %>
+</div>
+
+
+<!-- JS -->
+<script type="text/javascript" id="gretaScript" src="https://cdn.greta.io/greta.min.js" data-ac="274c8d0f5a3d4e6a95fef74e72441bf8"></script>
+<script type="text/javascript" src="/javascripts/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+
+<script>
+    var cb = function (href) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        var h = document.getElementsByTagName('head')[0];
+        h.appendChild(l);
+    };
+    cb('/stylesheets/bootstrap.min.css');
+    cb('/stylesheets/font-awesome.min.css');
+    cb('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
+    cb('https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700')
+    cb('/stylesheets/main.css');
+</script>
+
+
+</body>
+
+</html>

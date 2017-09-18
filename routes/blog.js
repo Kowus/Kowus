@@ -2,12 +2,11 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = require('../models/blog.model');
-
 var moment = require('moment');
 
 
 router.get('/', function (req, res, next) {
-    Blog.find({}).exec(function (err, results) {
+    Blog.find({publish:true}).exec(function (err, results) {
         if (err) {
             return res.render('error', {error: err, message: err.message})
         }

@@ -1,0 +1,94 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!--<meta http-equiv="refresh" content="5">-->
+
+    <title>Dashboard</title>
+    <link rel="icon" href="/images/logo1.ico">
+
+    <script type="text/javascript" id="gretaScript" src="https://cdn.greta.io/greta.min.js"
+            data-ac="274c8d0f5a3d4e6a95fef74e72441bf8"></script>
+</head>
+<body>
+<% include templates/preloader.ejs %>
+<div class="container main" style="min-height: 100vh">
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-md-6 col-sm-offset-0">
+
+            <div id="watermark">
+                <h2 class="page-title text-center">Profile</h2>
+                <div class="marker">Admin Dashboard</div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+
+
+        <div class="col-md-9 col-md-offset-2">
+
+            <p class='subtitle'>Welcome <%= user.firstname %> <%= user.lastname %>. What would you like to do today?
+            </p>
+            <div class="text-center">
+                <a class="info btn btn-danger col-md-6" href="/!admin/dashboard/blog">
+                    <div>Add Blog</div>
+                </a>
+                <a class="info btn btn-info col-md-6">
+                    <div>Update Blog</div>
+                </a>
+                <a class="info btn btn-success col-md-6">
+                    <div>Drafts</div>
+                </a>
+                <a class="info btn btn-warning col-md-6">
+                    <div>Edit Details</div>
+                </a>
+                <!--
+                <a class="info btn btn-success col-md-6">
+                    <div></div>
+                </a>
+                -->
+            </div>
+        </div>
+    </div>
+    <% include templates/footer.ejs %>
+</div>
+
+
+<!-- JS -->
+
+
+<script src="/javascripts/bootstrap.min.js"></script>
+
+
+<script>
+    var cb = function (href) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        var h = document.getElementsByTagName('head')[0];
+        h.appendChild(l);
+    };
+    cb('/stylesheets/bootstrap.min.css');
+    cb('/stylesheets/font-awesome.min.css');
+    cb('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
+    cb('https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700')
+    cb('/stylesheets/main.css');
+</script>
+
+
+<script src="/javascripts/jquery-3.1.0.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+
+<!--<script src="/javascripts/owl.carousel.min.js"></script>-->
+<script src="/javascripts/main.js"></script>
+
+</body>
+
+</html>
