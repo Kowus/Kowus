@@ -1,7 +1,7 @@
 [
   {
     "name": "The Autonomous Agro House",
-    "url": "#",
+    "url": "https://www.youtube.com/watch?v=pPwj_JDS_lA",
     "description": "IET PATW 2017 Presentation- Dubai."
   },
   {
@@ -23,5 +23,10 @@
     "name": "http://wcyfonline.com",
     "url": "http://www.wcyfonline.com",
     "description": "Website for Worldwide Christian Youth programs."
+  },
+  {
+    "name":"Kophi's Dev Radio",
+    "url": "https://blog.khophi.co/wp-content/uploads/2017/03/episode5.mp3",
+    "description":"Working With Raspberry Pi’s and Arduinos in Relation to Robotics"
   }
 ]

@@ -11,8 +11,8 @@ router.get('/', function (req, res, next) {
             return res.render('error', {error: err, message: err.message})
         }
         results.forEach(function (item, index, array) {
-            var unique = moment(results[index].date).fromNow();
-            item.date = unique;
+
+            item.date = moment(results[index].date).fromNow();;
             if (index === array.length - 1) {
                 res.render('blog-dash',
                     {
