@@ -6,27 +6,11 @@ const Blog = require('../models/blog.model');
 const axios = require('axios');
 const redis = require('redis');
 const moment = require('moment');
-const mime = require('mime');
 const redisURI = process.env.REDIS_URL || '';
 const redis_cli = redis.createClient(redisURI, {no_ready_check: true});
-const firebase = require('firebase');
-const fileUpload = require('express-fileupload');
-const projectId = "bombaclat-baracuda";
-const keyFileName = "./bombaclat-baracuda-firebase-adminsdk-m622c-e7bcea0b15.json";
-const googleStorage = require('@google-cloud/storage');
-const storage = googleStorage({
-    projectId, keyFileName
-});
-const bucketName = `${projectId}.appspot.com`;
-
-const bucket = storage.bucket(bucketName);
-
 redis_cli.on('error', function (err) {
     console.log("Error " + err);
 });
-router.use(fileUpload({
-    limits: { fileSize: 5 * 1024 * 1024 },
-}));
 
 router.get('/', function (req, res, next) {
 
@@ -117,88 +101,6 @@ router.post('/update-blog', function (req, res) {
     );
 
 });
-/*
-router.post('/upload-file', multer.single('file'), function (req, res, next) {
-    const file = req.file;
-    if (file) {
-        uploadImageToStorage(file).then(function(success) {
 
-            res.status(200).send("S U C C E S S");
-            console.log('upload image');
-    }).catch(function(error)  {
-            console.error(error);
-    });
-    }
-});
-*/
-router.post('/upload-file', function (req, res, next) {
-    const file = req.files.image;
-    const uploadTo = `images/${file.name}`
-    if (file) {
-        fs.writeFile(`./uploads/${file.name}`, file.data, (err) => {
-            if (err) return console.error(err);
-            else {
-                console.log('The file has been saved!');
-                bucket.upload(`./uploads/${file.name}`, {
-                    destination: `images/${file.name}`,
-                    public: true,
-                    metadata: {contentType: file.mimetype, cacheControl: "public, max-age=300"}
-                }, function (err, myFile) {
-                    if (err) {
-                        res.json(req.files);
-                        return console.log(err);
-                    }
-                    console.log(createPublicFileURL(`images/${myFile}`));
-                    console.log(createPublicFileURL(`images/${file.name}`));
-                    res.send('success');
-                });
-            }
-        });
-
-
-    }
-});
 
 module.exports = router;
-
-
-function createPublicFileURL(storageName) {
-    return `http://storage.googleapis.com/${bucketName}/${encodeURIComponent(storageName)}`;
-
-}
-
-
-/**
- * Upload the image file to Google Storage
- * @param {File} file object that will be uploaded to Google Storage
- */
-/*
-const uploadImageToStorage = (file) => {
-    let prom = new Promise((resolve, reject) => {
-        if (!file) {
-            reject('No image file');
-        }
-        let newFileName = `${file.originalname}_${Date.now()}`;
-
-        let fileUpload = bucket.file(newFileName);
-
-        const blobStream = fileUpload.createWriteStream({
-            metadata: {
-                contentType: file.mimetype
-            }
-        });
-
-        blobStream.on('error', (error) => {
-            reject('Something is wrong! Unable to upload at the moment.');
-        });
-
-        blobStream.on('finish', () => {
-            // The public URL can be used to directly access the file via HTTP.
-            const url = format(`https://storage.googleapis.com/${bucket.name}/${fileUpload.name}`);
-            resolve(url);
-        });
-
-        blobStream.end(file.buffer);
-    });
-    return prom;
-};*/
