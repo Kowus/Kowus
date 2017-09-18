@@ -22,11 +22,11 @@
             menubar: false,
             plugins: [
                 'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
+                'searchreplace visualblocks codesample fullscreen',
                 'insertdatetime media table contextmenu paste code'
             ],
             toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright ' +
-            'alignjustify | bullist numlist outdent indent | link image code insertfile',
+            'alignjustify | bullist numlist outdent indent | link image code insertfile | codesample',
             content_css: [
                 '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
                 '//www.tinymce.com/css/codepen.min.css']
@@ -89,7 +89,7 @@
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls form-inline">
-                            <label>Publish</label>
+                            <p><label>Publish</label></p>
                             <input type="radio" class="form-control" value="yes" name="publish" id="publish" required data-validation-required-message="Please choose a category."><small> Yes</small>
                             <input type="radio" class="form-control" value="no" id="publish" name="publish" checked required data-validation-required-message="Please choose a category."><small> No</small>
                             <p class="help-block text-danger"></p>
