@@ -1,12 +1,12 @@
-const express = require('express');
-const router = express.Router();
-let fs = require('fs'), path = require('path');
-const Blog = require('../models/blog.model');
-const axios = require('axios');
-const redis = require('redis');
-const moment = require('moment');
-const redisURI = process.env.REDIS_URL || '';
-const redis_cli = redis.createClient(redisURI, {no_ready_check: true});
+var express = require('express');
+var router = express.Router();
+var fs = require('fs'), path = require('path');
+var Blog = require('../models/blog.model');
+var axios = require('axios');
+var redis = require('redis');
+var moment = require('moment');
+var redisURI = process.env.REDIS_URL || '';
+var redis_cli = redis.createClient(redisURI, {no_ready_check: true});
 redis_cli.on('error', function (err) {
     console.log("Error " + err);
 });
@@ -16,7 +16,7 @@ var S3Strategy = require('express-fileuploader-s3');
 
 router.use('/upload/image', mutilpart());
 
-uploader.use(new uploader.S3Strategy({
+uploader.use(new S3Strategy({
     uploadPath: '/uploads',
     headers: {
         'x-amz-acl': 'public-read'
@@ -44,7 +44,7 @@ router.get('/', function (req, res, next) {
                 });
         } else {
             axios.get('http://quotes.rest/qod.json').then(function (response) {
-                const myQuote = response.data.contents.quotes[0];
+                var myQuote = response.data.contents.quotes[0];
                 redis_cli.setex(myQuote.date, 7200, JSON.stringify(myQuote));
                 res.render('add-blog',
                     {
@@ -61,11 +61,9 @@ router.get('/', function (req, res, next) {
         }
     });
 });
-
-
 router.post('/create', function (req, res) {
     // console.log(req.body);
-    const newBlog = new Blog();
+    var newBlog = new Blog();
 
     newBlog.title = req.body.title;
     newBlog.permalink = newBlog.title.trim().toLowerCase().split(/[\s,.]+/).join('_');
@@ -92,9 +90,8 @@ router.post('/create', function (req, res) {
      *
      * */
 });
-
 router.post('/update-blog', function (req, res) {
-    const reqBody = req.body;
+    var reqBody = req.body;
     console.log("Update Blog: " + reqBody.title);
     Blog.findOneAndUpdate(
         {
