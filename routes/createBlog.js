@@ -23,7 +23,7 @@ AWS.config.update(
 
 
 
-router.get('/', function (req, res, next) {
+router.get('/create', function (req, res, next) {
 
     redis_cli.get(moment(new Date()).format("YYYY-MM-DD"), function (error, result) {
         if (result) {
@@ -55,6 +55,40 @@ router.get('/', function (req, res, next) {
         }
     });
 });
+router.get('/update', function (req, res, next) {
+    Blog.aggregate([
+        {$sort:{date:-1}}
+    ]).exec(function (err, results) {
+        if (err) {
+            return res.render('error', {error: err, message: err.message})
+        }
+        results.forEach(function (item, index, array) {
+
+            item.date = moment(results[index].date).fromNow();;
+            if (index === array.length - 1) {
+                res.render('update-dash',
+                    {
+                        title: "Update Blog",
+                        marker: "Barnabas Nomo",
+                        next: "Home",
+                        blogs: results
+                    });
+            }
+        });
+
+    });
+});
+router.get('/update/id/:id', function (req, res, next) {
+    Blog.findOne({_id: req.params.id}).exec(function (err, blog) {
+        if (err) {
+            return console.log('an error has occurred' + err);
+        }
+        blog.date = moment(blog.date).format("dddd, MMMM Do YYYY");
+        res.render('update-blog', {blog: blog, user: req.user})
+    });
+});
+
+
 router.post('/create', function (req, res) {
     // console.log(req.body);
     var newBlog = new Blog();
@@ -84,7 +118,7 @@ router.post('/create', function (req, res) {
      *
      * */
 });
-router.post('/update-blog', function (req, res) {
+router.post('/update', function (req, res) {
     var reqBody = req.body;
     console.log("Update Blog: " + reqBody.title);
     Blog.findOneAndUpdate(
@@ -109,6 +143,7 @@ router.post('/update-blog', function (req, res) {
     );
 
 });
+
 
 
 
