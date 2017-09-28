@@ -116,8 +116,8 @@ router.post('/update-blog', function (req, res) {
 
 });
 
-router.post('/upload/image', function(req, res, next) {
-    uploader.upload('s3', req.files['images'], function(err, files) {
+router.post('/upload/image', function (req, res, next) {
+    uploader.upload('s3', req.files['images'], function (err, files) {
         if (err) {
             return next(err);
         }
