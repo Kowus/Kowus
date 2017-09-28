@@ -7,6 +7,7 @@
   },
   "description": "Hi, I am Barnabas, a Windows and Web developer from Koforidua, Ghana. I am passionate about development, interaction, and effecting change through STEM. I love to teach, and walk students through simple building blocks of algorithms. I also love to build lesson examples to help beginners understand certain programming languages and conventions.",
   "dependencies": {
+    "aws-sdk": "^2.124.0",
     "axios": "^0.16.2",
     "body-parser": "~1.15.2",
     "compression": "^1.6.2",

@@ -13,8 +13,15 @@ redis_cli.on('error', function (err) {
 var mutilpart = require('connect-multiparty');
 var uploader = require('express-fileuploader');
 var S3Strategy = require('express-fileuploader-s3');
+var AWS = require('aws-sdk');
 
 router.use('/upload/image', mutilpart());
+
+AWS.config.update(
+    {
+        accessKeyId: process.env.S3_KEY_ID,
+        secretAccessKey: process.env.S3_SECRET_ACCESS_KEY
+    });
 
 uploader.use(new S3Strategy({
     uploadPath: '/uploads',
@@ -115,7 +122,7 @@ router.post('/update-blog', function (req, res) {
     );
 
 });
-
+/*
 router.post('/upload/image', function (req, res, next) {
     uploader.upload('s3', req.files['images'], function (err, files) {
         if (err) {
@@ -123,6 +130,23 @@ router.post('/upload/image', function (req, res, next) {
         }
         res.send(JSON.stringify(files));
     });
+});
+*/
+
+router.post('/upload/image', function (req, res, next) {
+    var base64data = new Buffer.from(req.files['images'], 'binary');
+    var s3 = new AWS.S3();
+
+    s3.upload({
+        Bucket:process.env.S3_BUCKET_NAME,
+        Key: 'del2.txt',
+        Body: base64data,
+        ACL: 'public-read'
+    }, function (err, data) {
+        if (err) throw err;
+        console.log(data);
+        res.send(data);
+    })
 });
 
 module.exports = router;
