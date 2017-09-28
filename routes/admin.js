@@ -8,14 +8,14 @@ module.exports = function (app, passport) {
         failureRedirect: '/!admin/login',
         failureFlash: true
     }));
-    app.get('/!admin/signup', function (req, res) {
+    /*app.get('/!admin/signup', function (req, res) {
         res.render('signup', {message: req.flash('signupMessage')});
-    });
-    app.post('/!admin/signup', passport.authenticate('local-signup', {
+    });*/
+    /*app.post('/!admin/signup', passport.authenticate('local-signup', {
         successRedirect: '/!admin/dashboard',
         failureRedirect: '/!admin/signup',
         failureFlash: true
-    }));
+    }));*/
     app.get('/!admin/dashboard', isLoggedIn, function (req, res) {
         res.render('dashboard', {
             user: req.user // get the user out of session and pass to template
