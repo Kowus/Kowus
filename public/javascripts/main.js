@@ -1,5 +1,31 @@
+$(function () {
+    $("#owl-demo").owlCarousel({
+        slideSpeed: 2000,
+        paginationSpeed: 2000,
+        singleItem: true,
+        autoplay: 3000,
+        loop: true,
+        nav: true,
+        items: 1,
+        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+        dots: false
+    });
+    $('#404Page').height($(window).height());
+    $('#contactlink').click(function () {
+        $('#contact').toggleClass("ran raner");
+    });
 
-$(function(){$("#owl-demo").owlCarousel({slideSpeed:2000,paginationSpeed:2000,singleItem:true,autoplay:3000,loop:true,nav:true,items:1,navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],dots:false});$('#404Page').height($(window).height());$('#contactlink').click(function () {$('#contact').toggleClass("ran raner");});});
+    $("#newCat").click(function () {
+        $("#catZone").append("<div class='input-group'  style=\"margin: 25px\">" +
+            "<input class='form-control' name='categories' placeholder='New Category'>" +
+            "<span class='input-group-btn' id='trash_it' style='padding: 0;'>" +
+            "<button class='btn btn-danger btn-sm' type='button' onclick='$(this).parents()[1].remove()' style='height: auto; padding: 4px 8px; position: absolute; bottom: 0;border-radius: 5px'>" +
+            "<i class='fa fa-trash-o'></i>" +
+            "</button>" +
+            "</span>" +
+            "</div>");
+    });
+});
 /*
 var appCache = window.applicationCache;
 appCache.update();

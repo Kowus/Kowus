@@ -88,11 +88,23 @@
                         <input name="_id" value="<%= blog._id %>" class="hidden">
                     </div>
                     <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls form-inline">
-                            <label>Categories</label>
-                            <input type="checkbox" class="form-control" value="technology" name="categories" id="categories" required data-validation-required-message="Please choose a category."><small> Technology</small>
-                            <input type="checkbox" class="form-control" value="society" id="categories" name="categories" required data-validation-required-message="Please choose a category."><small> Society</small>
-                            <p class="help-block text-danger"></p>
+                        <div class="form-group form-group-sm col-xs-12 controls form-inline">
+                            <h4>Categories</h4>
+                            <p class="btn btn-primary btn-sm pull-right" id="newCat" style="border-radius: 10%; padding: 4px 8px;"><i class="fa fa-pencil-square"></i>New</p>
+                            <div id="catZone" class="form-inline form-group">
+                                <% blog.categories.forEach(function (category) { %>
+                                <div class='input-group' style="margin: 25px">
+                                    <input class='form-control' name='categories' placeholder='New Category' value="<%= category %>">
+                                    <span class='input-group-btn' id='trash_it' style="padding: 0">
+                                        <button class='btn btn-danger btn-sm' type='button' onclick='$(this).parents()[1].remove()'
+                                                style='height: auto; padding: 4px 8px; position: absolute; bottom: 0; border-radius: 5px'>
+                                            <i class='fa fa-trash-o'></i>
+                                        </button>
+                                    </span>
+                                </div>
+
+                                <% }) %>
+                            </div>
                         </div>
                     </div>
                     <div class="row control-group">
@@ -106,8 +118,10 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls form-inline">
                             <p><label>Publish</label></p>
-                            <input type="radio" class="form-control" value="yes" name="publish" id="publish" required data-validation-required-message="Please choose a category."><small> Yes</small>
-                            <input type="radio" class="form-control" value="no" id="publish" name="publish" checked required data-validation-required-message="Please choose a category."><small> No</small>
+                            <input type="radio" class="form-control" value="yes" name="publish" id="publish" required data-validation-required-message="Please choose a category.">
+                            <small> Yes</small>
+                            <input type="radio" class="form-control" value="no" id="publish" name="publish" checked required data-validation-required-message="Please choose a category.">
+                            <small> No</small>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -143,6 +157,7 @@
 <script src="/javascripts/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
+<script src="/javascripts/owl.carousel.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
 
 <script src="/javascripts/jqBootstrapValidation.js"></script>
