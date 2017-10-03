@@ -37,23 +37,53 @@
             <p class='subtitle'>Welcome <%= user.firstname %> <%= user.lastname %>. What would you like to do today?
             </p>
             <div class="text-center">
-                <a class="info btn btn-danger col-md-6" href="/!admin/dashboard/blog/create">
-                    <div>Add Blog</div>
-                </a>
-                <a class="info btn btn-info col-md-6" href="/!admin/dashboard/blog/update">
-                    <div>Update Blog</div>
-                </a>
-                <a class="info btn btn-success col-md-6">
-                    <div>Drafts</div>
-                </a>
-                <a class="info btn btn-warning col-md-6">
-                    <div>Edit Details</div>
-                </a>
-                <!--
-                <a class="info btn btn-success col-md-6">
-                    <div></div>
-                </a>
-                -->
+                <div class="col-xs-6 pang">
+                    <a href="/!admin/dashboard/blog/create">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading text-left"><h3>Add</h3></div>
+                            <div class="panel-body">
+                                Create a New Blog
+                            </div>
+                            <div class="panel-footer text-left">Footer Empty atm</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xs-6 pang">
+                    <a href="/!admin/dashboard/blog/update">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading text-left"><h3>Update</h3></div>
+                            <div class="panel-body">
+                                Edit Blogs
+                            </div>
+                            <div class="panel-footer text-left">Footer Empty atm</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xs-6 pang">
+                    <a href="/!admin/dashboard/event">
+                        <div class="panel panel-info">
+                            <div class="panel-heading text-left"><h3>Event</h3></div>
+                            <div class="panel-body">
+                                Event Management
+                            </div>
+                            <div class="panel-footer text-left">Footer Empty atm</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xs-6 pang">
+                    <a href="#">
+                        <div class="panel panel-success">
+                            <div class="panel-heading text-left"><h3>Settings</h3></div>
+                            <div class="panel-body">
+                                Account Management
+                            </div>
+                            <div class="panel-footer text-left">Footer Empty atm</div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

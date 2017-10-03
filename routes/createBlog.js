@@ -64,7 +64,7 @@ router.get('/update', function (req, res, next) {
         }
         results.forEach(function (item, index, array) {
 
-            item.date = moment(results[index].date).fromNow();;
+            item.date = moment(results[index].date).fromNow();
             if (index === array.length - 1) {
                 res.render('update-dash',
                     {
