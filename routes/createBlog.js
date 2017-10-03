@@ -121,6 +121,7 @@ router.post('/create', function (req, res) {
 router.post('/update', function (req, res) {
     var reqBody = req.body;
     console.log("Update Blog: " + reqBody.title);
+    var pub = reqBody.publish === "yes";
     Blog.findOneAndUpdate(
         {
             _id: reqBody._id
@@ -128,7 +129,8 @@ router.post('/update', function (req, res) {
             title: reqBody.title,
             categories: reqBody.categories,
             content: reqBody.content,
-            description: reqBody.description
+            description: reqBody.description,
+            publish: pub
 
         }, function (err, result) {
             if (err) {
