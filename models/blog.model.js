@@ -17,8 +17,7 @@ var BlogSchema = new Schema({
         required: true
     },
     categories: {
-        type: Array,
-        required: true
+        type: Array
     },
     content: {
         type: String,
