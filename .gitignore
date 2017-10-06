@@ -46,3 +46,6 @@ bin/newrelic_agent.log
 *.DS_Store
 test.js
 mockdat.txt
+dump.rdb
+smapReg.json
+uploads/
