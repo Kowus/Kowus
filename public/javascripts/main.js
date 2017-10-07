@@ -11,9 +11,6 @@ $(function () {
         dots: false
     });
     $('#404Page').height($(window).height());
-    $('#contactlink').click(function () {
-        $('#contact').toggleClass("ran raner");
-    });
 
     $("#newCat").click(function () {
         $("#catZone").append("<div class='input-group'  style=\"margin: 25px\">" +
@@ -25,6 +22,8 @@ $(function () {
             "</span>" +
             "</div>");
     });
+    $(".twitter-share-button").attr("data-url", window.location.href).css("vertical-align","bottom");
+    $(".fb-share-button").attr("data-href", window.location.href);
 });
 /*
 var appCache = window.applicationCache;
