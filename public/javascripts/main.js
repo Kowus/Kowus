@@ -23,7 +23,6 @@ $(function () {
             "</div>");
     });
     $(".twitter-share-button").attr("data-url", window.location.href).css("vertical-align","bottom");
-    $(".fb-share-button").attr("data-href", window.location.href);
 });
 /*
 var appCache = window.applicationCache;
