@@ -1,32 +1,50 @@
 [
   {
+    "name": "The Nomad",
+    "url": "https://the-nomad.com",
+    "description": "My audible developer memoirs.",
+    "image": "/images/nomad.jpg"
+  },
+  {
+    "name": "Rapunzel",
+    "url": "https://littleplasticsquares.com/high-res-2d-barcodes-for-transmission-over-an-air-gap-part-1/",
+    "description": "Animated high-resolution barcodes as a a workable mode of communication for sending data across an air gap",
+    "image": "/images/rapunzel.jpeg"
+  },
+  {
     "name": "The Autonomous Agro House",
     "url": "https://www.youtube.com/watch?v=pPwj_JDS_lA",
-    "description": "IET PATW 2017 Presentation- Dubai."
+    "description": "IET PATW 2017 Presentation- Dubai.",
+    "image": "/images/aah.jpg"
+  },
+  {
+    "name": "Open Weather Ghana",
+    "url": "#",
+    "description": "Kumasi Hive Open Source Weather Station.",
+    "image": "/images/abouts.jpg"
   },
   {
     "name": "kowus/twitter-control",
     "url": "https://www.hackster.io/Kowus/twitter-controlled-robot-a5e01a",
-    "description": "Controlling a robot with tweets."
+    "description": "Controlling a robot with tweets.",
+    "image": "/images/tcr.jpeg"
   },
   {
     "name": "kowus/node-js",
     "url": "https://github.com/Kowus/node-js.git",
-    "description": "Learn Node.js Essentials."
+    "description": "Learn Node.js Essentials.",
+    "image": "/images/abouts.jpg"
   },
   {
-    "name": "http://www.oususvchi.com",
+    "name": "Life in a Pixel",
     "url": "http://oususvchi.com",
-    "description": "Wallpaper Gallery for Oususvchi."
+    "description": "Wallpaper Gallery for Oususvchi.",
+    "image": "/images/oususvchi.jpg"
   },
   {
-    "name": "http://wcyfonline.com",
-    "url": "http://www.wcyfonline.com",
-    "description": "Website for Worldwide Christian Youth programs."
-  },
-  {
-    "name":"Kophi's Dev Radio",
+    "name": "Kophi's Dev Radio",
     "url": "https://blog.khophi.co/wp-content/uploads/2017/03/episode5.mp3",
-    "description":"Working With Raspberry Pi’s and Arduinos in Relation to Robotics"
+    "description": "Working With Raspberry Pi’s and Arduinos in Relation to Robotics",
+    "image": "/images/sol-foster.jpg"
   }
 ]

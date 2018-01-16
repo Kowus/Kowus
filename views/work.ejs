@@ -31,30 +31,12 @@
             data-ac="274c8d0f5a3d4e6a95fef74e72441bf8"></script>
 </head>
 
-<body style="background-color: white; max-height: 100vh; overflow-x: hidden;">
+<body style="background-color: white; overflow-x: hidden; width: 100%">
 <% include templates/preloader.ejs %>
 <a name="top"></a>
 <div class="container main mainer" style="margin-bottom: 10px;">
     <div class="row port cs-style-3">
-        <div class="col-md-6" style="margin-bottom: 10px;">
-            <div id="owl-demo" class="owl-carousel owl-theme item img-responsive img-rabbit"
-                 style="background-color: black; max-height:80vh; overflow-y: hidden;">
-
-                         <% featured.forEach(function (item) { %>
-                    <figure style="object-fit: cover;">
-                        <img id="workPic" src="<%=item.image%>" style="object-fit: cover;height: 60vh;">
-                        <figcaption>
-                            <h3><%=item.name%></h3>
-                            <span id="picDes"><%=item.description%></span>
-                        </figcaption>
-                    </figure>
-                <% }) %>
-
-            </div>
-        </div>
-
-
-        <div class="col-md-6" style="margin-bottom: 10px;">
+        <div class="col-md-12" style="margin-bottom: 10px;">
             <div class="row" style="margin-right: 10px;margin-left: 10px;">
                 <a href="/about" class="btn btn-rabbit back col-sm-3">
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -73,23 +55,43 @@
             <div>
                 <h4>Here are a few projects and lessons I have worked on.</h4>
                 <hr class="small">
-                <ul class="list-unstyled">
+                <div class="activity-zones">
+                    <% projects.forEach(function (project) { %>
+
+                        <div class="activity-item" data-background="<%=project.image%>">
+                            <div class="activity-text">
+                                <h1 style="margin: 50px 2px auto;">
+                                    <%=project.name%><br>
+
+                                    <small><a href="<%=project.url%>" style="color: rgba(238,235,243,0.52)"><%=project.description%></a></small>
+                                </h1>
+                            </div>
+                        </div>
+                    <% }) %>
+
+
+                </div>
+
+<hr>
+                <!--<ul class="list-unstyled">
                     <% projects.forEach(function (project) { %>
                     <li><a href="<%= project.url %>" target="_blank" style="font-style: italic;
                     font-size: 17px; font-family: 'Times New Roman';
                     color:
                     #5e5e5e"><%=
-                                project.name
-                            %>: <small style="padding-left: 7px;color: rgba(0,0,0,0.4);"><%=project
-                                        .description%></small></a></li>
+                    project.name
+                %>: <small style="padding-left: 7px;color: rgba(0,0,0,0.4);"><%= project
+                        .description %></small></a></li>
                     <% }) %>
-                </ul>
+                </ul>-->
             </div>
         </div>
         <br>
 
         <br>
-        <% include templates/social.ejs %>
+        <div>
+            <% include templates/social.ejs %>
+        </div>
     </div>
     <div id="footre">
         <% include templates/footer.ejs %>
@@ -121,7 +123,15 @@
     ga('create', 'UA-87349035-1', 'auto');
     ga('send', 'pageview');
 </script>
-
+<script>
+    $(function () {
+        $('.activity-item').each(function () {
+            $(this).css('background', 'url('+$(this).attr('data-background')+')');
+            $(this).css('backgroundSize', 'cover')
+            $(this).css('backgroundPosition', 'top')
+        })
+    })
+</script>
 
 </body>
 
