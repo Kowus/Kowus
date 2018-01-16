@@ -58,32 +58,19 @@
                 <div class="activity-zones">
                     <% projects.forEach(function (project) { %>
 
-                        <div class="activity-item" data-background="<%=project.image%>">
-                            <div class="activity-text">
-                                <h1 style="margin: 50px 2px auto;">
-                                    <%=project.name%><br>
+                    <div class="activity-item" data-background="<%= project.image %>">
+                        <div class="activity-text">
+                            <h1 style="margin: 50px 2px auto;">
+                                <%= project.name %><br>
 
-                                    <small><a href="<%=project.url%>" style="color: rgba(238,235,243,0.52)"><%=project.description%></a></small>
-                                </h1>
-                            </div>
+                                <small><a target="_blank" href="<%= project.url %>"
+                                          style="color: rgba(238,235,243,0.52)"><%= project.description %></a></small>
+                            </h1>
                         </div>
+                    </div>
                     <% }) %>
-
-
                 </div>
-
-<hr>
-                <!--<ul class="list-unstyled">
-                    <% projects.forEach(function (project) { %>
-                    <li><a href="<%= project.url %>" target="_blank" style="font-style: italic;
-                    font-size: 17px; font-family: 'Times New Roman';
-                    color:
-                    #5e5e5e"><%=
-                    project.name
-                %>: <small style="padding-left: 7px;color: rgba(0,0,0,0.4);"><%= project
-                        .description %></small></a></li>
-                    <% }) %>
-                </ul>-->
+                <hr>
             </div>
         </div>
         <br>
@@ -126,7 +113,7 @@
 <script>
     $(function () {
         $('.activity-item').each(function () {
-            $(this).css('background', 'url('+$(this).attr('data-background')+')');
+            $(this).css('background', 'url(' + $(this).attr('data-background') + ')');
             $(this).css('backgroundSize', 'cover')
             $(this).css('backgroundPosition', 'top')
         })
