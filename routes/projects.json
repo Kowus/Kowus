@@ -8,8 +8,14 @@
   {
     "name": "Rapunzel",
     "url": "https://littleplasticsquares.com/high-res-2d-barcodes-for-transmission-over-an-air-gap-part-1/",
-    "description": "Animated high-resolution barcodes as a a workable mode of communication for sending data across an air gap",
+    "description": "Animated high-resolution barcodes as a workable mode of communication for sending data across an air gap.",
     "image": "/images/rapunzel.jpeg"
+  },
+  {
+    "name": "HTML5 Audio Player",
+    "url": "https://kowus.github.io/html5-audio-player/",
+    "description": "A JavaScript plugin for creating html5 audio playlists.",
+    "image": "/images/boombox.jpg"
   },
   {
     "name": "The Autonomous Agro House",
