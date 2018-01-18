@@ -57,15 +57,5 @@ router.get('/title/:blog_title', function (req, res) {
     });
 });
 
-router.get('/id/:blog_id', function (req, res) {
-
-    Blog.findOne({_id: req.params.blog_id}).exec(function (err, blog) {
-        if (err) {
-            return console.log('an error has occurred' + err);
-        }
-        blog.date = moment(blog.date).format("dddd, MMMM Do YYYY");
-        res.render('blog', {blog: blog})
-    });
-});
 
 module.exports = router;

@@ -109,7 +109,7 @@ router.post('/create', function (req, res) {
     newBlog.description = req.body.description;
     newBlog.date = new Date().toISOString();
     newBlog.publish = req.body.publish === "yes";
-    newBlog.author = req.user._id
+    newBlog.author = req.user._id;
 
     newBlog.save(function (err, blog) {
         if (err) {
