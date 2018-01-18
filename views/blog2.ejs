@@ -41,6 +41,16 @@
                         <%-blog.title%></h1>
                     <p class="lead" style="color: white; opacity: .7; width: 100%; font-style: italic"><%-blog.description%></p>
                     <p style="color: white"><i class="fa fa-user-md"> <%=blog.author.firstname%> <%=blog.author.lastname%></i> | <i class="fa fa-calendar-o"><small> <%=blog.date%></small></i></p>
+                    <div class="share-block" style="margin-top: 10px;line-height: 15px">
+                        <a class="twitter-share-button"
+                           href="https://twitter.com/share"
+                           data-text="<%=blog.description%>"
+                           data-hashtags="<%=blog.categories%>"
+                           data-via="barnabasnomo"
+                           data-related="barnabasnomo">
+                            Tweet
+                        </a>
+                    </div>
                 </div>
             </div>
 

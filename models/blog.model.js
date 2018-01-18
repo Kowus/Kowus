@@ -34,6 +34,10 @@ var BlogSchema = new Schema({
     }, publish:{
         type:Boolean,
         default: false
+    },
+    banner_picture:{
+        type:String,
+        default:'/images/sol-foster.jpg'
     }
 
 });
