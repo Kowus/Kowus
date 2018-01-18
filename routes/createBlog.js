@@ -50,6 +50,15 @@ router.get('/create', function (req, res, next) {
                         user: req.user
                     });
             }).catch(function (err) {
+                res.render('add-blog',
+                    {
+                        title: "Create A New Blog",
+                        marker: "blog",
+                        next: "Home",
+                        horror: '',
+                        quote: 'Today is the first day of the rest of your life.',
+                        user: req.user
+                    });
                 console.log(err.message);
             });
         }
@@ -100,6 +109,7 @@ router.post('/create', function (req, res) {
     newBlog.description = req.body.description;
     newBlog.date = new Date().toISOString();
     newBlog.publish = req.body.publish === "yes";
+    newBlog.author = req.user._id
 
     newBlog.save(function (err, blog) {
         if (err) {

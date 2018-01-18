@@ -11,13 +11,17 @@ var sm = require('sitemap');
 var compression = require('compression');
 var passport = require('passport'),
     flash = require('connect-flash'),
-    session = require('express-session');
-var db = process.env.MONGODB_URL_KOWUS;
+    session = require('express-session'),
+    db = process.env.MONGODB_URL_KOWUS,
+    redis = require('redis').createClient(process.env.REDIS_URL, {no_ready_check: true}),
+    RedisStore = require('connect-redis')(session),
+    helmet = require('helmet');
 mongoose.connect(db);
 mongoose.connection.on('error', function (err) {
     console.log("mongoose connection Error " + err);
 });
 var app = express();
+app.use(helmet());
 app.use(compression());
 
 
@@ -71,7 +75,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret:process.env.SESSION_SECRET, resave:false, saveUninitialized:true}));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: new RedisStore({client: redis})
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

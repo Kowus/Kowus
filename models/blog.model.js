@@ -28,8 +28,9 @@ var BlogSchema = new Schema({
         default: Date.now()
     },
     author: {
-        type: String,
-        default: 'Barnabas Nomo'
+        type:Schema.Types.ObjectId,
+        required:true,
+        ref:'User'
     }, publish:{
         type:Boolean,
         default: false

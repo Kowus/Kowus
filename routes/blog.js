@@ -48,12 +48,12 @@ router.get('/J2nmnk209olq1RWfiq', function (req, res) {
 
 router.get('/title/:blog_title', function (req, res) {
 
-    Blog.findOne({permalink: req.params.blog_title}).exec(function (err, blog) {
+    Blog.findOne({permalink: req.params.blog_title}).populate({path:'author',select:'firstname lastname'}).exec(function (err, blog) {
         if (err) {
             return console.log('an error has occurred' + err);
         }
-        blog.date = moment(blog.date).format("dddd, MMMM Do YYYY");
-        res.render('blog', {blog: blog})
+        blog.date = moment(blog.date).format("ddd, MMMM Do YYYY");
+        res.render('blog2', {blog: blog})
     });
 });
 
