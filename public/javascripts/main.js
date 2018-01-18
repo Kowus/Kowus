@@ -22,7 +22,7 @@ $(function () {
             "</span>" +
             "</div>");
     });
-    $(".twitter-share-button").attr("data-url", window.location.href).css("vertical-align","bottom");
+    $(".twitter-share-button").attr("data-url", window.location.href);
 });
 /*
 var appCache = window.applicationCache;
