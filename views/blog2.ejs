@@ -9,6 +9,7 @@
     <meta name="keywords" content="<%= blog.categories %>,<%= blog.description %>">
     <meta name="author" content="Barnabas Nomo">
     <link rel="icon" href="/images/logo1.ico">
+    <title><%=blog.title%></title>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 
@@ -47,6 +48,7 @@
                            data-text="<%=blog.description%>"
                            data-hashtags="<%=blog.categories%>"
                            data-via="barnabasnomo"
+                           data-url="www.barnabasnomo.com/blog/<%=blog.permalink%>"
                            data-related="barnabasnomo">
                             Tweet
                         </a>
@@ -75,7 +77,35 @@
     </div>
 
 </div>
-
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://barnabasnomo.com/blog/<%=blog.permalink%>"
+  },
+  "headline": "<%=blog.title%>",
+  "image": [
+    "http://www.barnabasnomo.com/images/logo1.ico",
+   ],
+  "datePublished": "<%=isodate%>",
+  "dateModified": "<%=isodate%>",
+  "author": {
+    "@type": "Person",
+    "name": "Barnabas Nomo"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "The World Is Yours",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://www.barnabasnomo.com/images/logo1.ico"
+    }
+  },
+  "description": "<%=blog.description%>"
+}
+</script>
 
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>

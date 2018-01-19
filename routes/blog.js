@@ -7,15 +7,16 @@ var moment = require('moment');
 
 router.get('/', function (req, res, next) {
     Blog.aggregate([
-        {$match:{publish:true}},
-        {$sort:{date:-1}}
-        ]).exec(function (err, results) {
+        {$match: {publish: true}},
+        {$sort: {date: -1}}
+    ]).exec(function (err, results) {
         if (err) {
-            return res.render('error', {error: err, message: err.message})
+            return res.render('error', {error: err, message: err.message});
         }
         results.forEach(function (item, index, array) {
 
-            item.date = moment(results[index].date).fromNow();;
+            item.date = moment(results[index].date).fromNow();
+            ;
             if (index === array.length - 1) {
                 res.render('blog-dash',
                     {
@@ -44,16 +45,20 @@ router.get('/J2nmnk209olq1RWfiq', function (req, res) {
 });
 
 
-
-
 router.get('/title/:blog_title', function (req, res) {
 
-    Blog.findOne({permalink: req.params.blog_title}).populate({path:'author',select:'firstname lastname'}).exec(function (err, blog) {
+    Blog.findOne({permalink: req.params.blog_title}).populate({
+        path: 'author',
+        select: 'firstname lastname'
+    }).exec(function (err, blog) {
         if (err) {
             return console.log('an error has occurred' + err);
         }
+        var isodate = blog.date;
+
+
         blog.date = moment(blog.date).format("ddd, MMMM Do YYYY");
-        res.render('blog2', {blog: blog})
+        res.render('blog2', {blog: blog, isodate:isodate});
     });
 });
 
