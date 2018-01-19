@@ -17,21 +17,7 @@
 
 </head>
 <body>
-<script>
-    var cb = function (href) {
-        var l = document.createElement('link');
-        l.rel = 'stylesheet';
-        l.href = href;
-        var h = document.getElementsByTagName('head')[0];
-        h.appendChild(l);
-    };
-    cb('/stylesheets/bootstrap.min.css');
-    cb("/stylesheets/bootstrap-theme.min.css");
-    cb('/stylesheets/font-awesome.min.css');
-    cb('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
-    cb('https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700')
-    cb('/stylesheets/main.css');
-</script>
+
 <% include templates/preloader.ejs %>
 <a name="top"></a>
 <div class="container main">
@@ -69,7 +55,21 @@
     <% include templates/footer.ejs %>
 </div>
 
-
+<script>
+    var cb = function (href) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        var h = document.getElementsByTagName('head')[0];
+        h.appendChild(l);
+    };
+    cb('/stylesheets/bootstrap.min.css');
+    cb("/stylesheets/bootstrap-theme.min.css");
+    cb('/stylesheets/font-awesome.min.css');
+    cb('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
+    cb('https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700')
+    cb('/stylesheets/main.css');
+</script>
 <!-- JS -->
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
