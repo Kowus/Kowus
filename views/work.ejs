@@ -7,25 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/images/logo1.ico">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-
     <title>Barnabas Nomo's <%= title %></title>
-
-    <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
-    <link type="text/css" rel="stylesheet" href="/stylesheets/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i">
-    <link type="text/css" rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700">
-    <link type="text/css" rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
-    <link type="text/css" rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
-    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
-    <!--angular js-->
-
-
 </head>
-
 <body style="background-color: white; overflow-x: hidden; width: 100%">
 <% include templates/preloader.ejs %>
 <a name="top"></a>
@@ -33,14 +16,8 @@
     <div class="row port cs-style-3">
         <div class="col-md-12" style="margin-bottom: 10px;">
             <div class="row" style="margin-right: 10px;margin-left: 10px;">
-                <a href="/about" class="btn btn-rabbit back col-sm-3">
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <%= next %>
-                </a>
-                <a href="/blog" class="btn btn-rabbit forward col-sm-offset-3">
-                    Blog
-                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                </a>
+                <a href="/about" class="btn btn-rabbit back col-sm-3"><i class="fa fa-angle-left" aria-hidden="true"></i><%= next %></a>
+                <a href="/blog" class="btn btn-rabbit forward col-sm-offset-3">Blog<i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
             </div>
             <div id="watermark">
                 <h2 class="page-title" text-center><%= title %></h2>
@@ -52,15 +29,10 @@
                 <hr class="small">
                 <div class="activity-zones">
                     <% activities.forEach(function (project) { %>
-
                     <div class="activity-item" data-background="<%= project.image %>">
                         <div class="activity-text">
-                            <h1 style="margin: 50px 2px auto;">
-                                <%= project.name %><br>
-
-                                <small><a target="_blank" href="<%= project.url %>"
-                                          style="color: rgba(238,235,243,0.52)"><%= project.description %></a></small>
-                            </h1>
+                            <h1 style="margin: 50px 2px auto;"><%= project.name %><br><small><a target="_blank" href="<%= project.url %>"
+                                          style="color: rgba(238,235,243,0.52)"><%= project.description %></a></small></h1>
                         </div>
                     </div>
                     <% }) %>
@@ -69,7 +41,6 @@
             </div>
         </div>
         <br>
-
         <br>
         <div>
             <% include templates/social.ejs %>
@@ -80,7 +51,23 @@
     </div>
 
 </div>
-
+<script>
+    var cb = function (href) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        var h = document.getElementsByTagName('head')[0];
+        h.appendChild(l);
+    };
+    cb('/stylesheets/bootstrap.min.css');
+    cb("/stylesheets/bootstrap-theme.min.css");
+    cb('/stylesheets/font-awesome.min.css');
+    cb('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i');
+    cb('https://fonts.googleapis.com/css?family=Crimson+Text:400,700,700i|Josefin+Sans:700')
+    cb('/stylesheets/owl.theme.default.min.css')
+    cb('/stylesheets/owl.carousel.min.css')
+    cb('/stylesheets/main.css');
+</script>
 
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
