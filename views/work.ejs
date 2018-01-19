@@ -31,7 +31,7 @@
                     <% activities.forEach(function (project) { %>
                     <div class="activity-item" data-background="<%= project.image %>">
                         <div class="activity-text">
-                            <h1 style="margin: 50px 2px auto;"><%= project.name %><br><small><a target="_blank" href="<%= project.url %>"
+                            <h1 class="project-name"><%= project.name %><br><small><a target="_blank" href="<%= project.url %>"
                                           style="color: rgba(238,235,243,0.52)"><%= project.description %></a></small></h1>
                         </div>
                     </div>
@@ -68,6 +68,15 @@
     cb('/stylesheets/owl.carousel.min.css')
     cb('/stylesheets/main.css');
 </script>
+<script>
+    $(function () {
+        $('.activity-item').each(function () {
+            $(this).css('background', 'url(' + $(this).attr('data-background') + ')');
+            $(this).css('backgroundSize', 'cover')
+            $(this).css('backgroundPosition', 'top')
+        })
+    })
+</script>
 
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
 <script src="/javascripts/bootstrap.min.js"></script>
@@ -93,15 +102,6 @@
 
     ga('create', 'UA-87349035-1', 'auto');
     ga('send', 'pageview');
-</script>
-<script>
-    $(function () {
-        $('.activity-item').each(function () {
-            $(this).css('background', 'url(' + $(this).attr('data-background') + ')');
-            $(this).css('backgroundSize', 'cover')
-            $(this).css('backgroundPosition', 'top')
-        })
-    })
 </script>
 
 </body>
