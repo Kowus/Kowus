@@ -7,10 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/images/logo1.ico">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-
     <title>Barnabas Nomo's <%= title %></title>
-
 </head>
 
 <body style="background-color: white; overflow-x: hidden; width: 100%">
@@ -31,39 +28,26 @@
             </div>
             <div id="watermark">
                 <h2 class="page-title" text-center>Blogs</h2>
-                <div class="marker" style="font-size: 14px; opacity: .078;width: 100%;">
-                    <h3>Who am I</h3>
-                    Who am I<br>
-                    And do I really exist?<br>
-                    Can you say
-                </div>
+                <div class="marker" style="font-size: 14px; opacity: .078;width: 100%;"><h3>Who am I</h3>Who am I<br>And do I really exist?<br>Can you say</div>
             </div>
-
             <div>
                 <hr class="small">
                 <div class="blog-zone">
                     <% blogs.forEach(function (blog) { %>
-
                     <div class="blog-entity">
                         <a href="/blog/title/<%= blog.permalink %>">
                             <i class="fa fa-thumb-tack pull-right" style="color: #af0000; transform: rotate(45deg)"></i>
-
                             <h1 class="text-capitalize"><%= blog.title %> </h1>
-                            <p class="subtitle"><%= blog.description %>
-                            </p>
-                            <p class="text-right">
-                                <small>--<i class="fa fa-clock-o"> </i> <%= blog.date %></small>
-                            </p>
+                            <p class="subtitle"><%= blog.description %></p>
+                            <p class="text-right"><small>--<i class="fa fa-clock-o"> </i> <%= blog.date %></small></p>
                         </a>
                     </div>
                     <% }) %>
-
                 </div>
                 <hr>
             </div>
         </div>
         <br>
-
         <br>
         <div>
             <% include templates/social.ejs %>
@@ -72,9 +56,7 @@
     <div id="footre">
         <% include templates/footer.ejs %>
     </div>
-
 </div>
-
 <script>
     var cb = function (href) {
         var l = document.createElement('link');
@@ -117,15 +99,7 @@
     ga('create', 'UA-87349035-1', 'auto');
     ga('send', 'pageview');
 </script>
-<script>
-    $(function () {
-        $('.activity-item').each(function () {
-            $(this).css('background', 'url(' + $(this).attr('data-background') + ')');
-            $(this).css('backgroundSize', 'cover')
-            $(this).css('backgroundPosition', 'top')
-        })
-    })
-</script>
+
 
 </body>
 
