@@ -36,30 +36,6 @@ app.locals = {
     Year: curyear
 };
 
-// Sitemaps
-var sitemap = sm.createSitemap({
-    hostname: 'http://www.kowus.xyz/',
-    cacheTime: 600000,        // 600 sec - cache purge period
-    urls: [
-        {url: '/', changefreq: 'weekly', priority: 1},
-        {url: '/about', changefreq: 'weekly', priority: 0.6},
-        {url: '/work', changefreq: 'weekly', priority: 0.2},
-        {url: '/blog', changefreq: 'daily', priority: 0.9},    // changefreq: 'weekly',  priority: 0.5
-        {url: '/events', changefreq: 'weekly', priority: 0.9}
-        // { url: '/page-4/',   img: "http://urlTest.com" }
-    ]
-});
-
-app.get('/sitemap.xml', function (req, res) {
-    sitemap.toXML(function (err, xml) {
-        if (err) {
-            return res.status(500).end();
-        }
-        res.header('Content-Type', 'application/xml');
-        res.send(xml);
-    });
-});
-
 // passport
 require('./config/passport')(passport);
 

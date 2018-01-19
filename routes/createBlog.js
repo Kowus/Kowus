@@ -6,7 +6,9 @@ var axios = require('axios');
 var redis = require('redis');
 var moment = require('moment');
 var redisURI = process.env.REDIS_URL || '';
-var redis_cli = redis.createClient(redisURI, {no_ready_check: true});
+var redis_cli = redis.createClient(redisURI, {no_ready_check: true}),
+    sitemap = require('../lib/sitemap')
+;
 redis_cli.on('error', function (err) {
     console.log("Error " + err);
 });
@@ -20,7 +22,6 @@ AWS.config.update(
         accessKeyId: process.env.S3_KEY_ID,
         secretAccessKey: process.env.S3_SECRET_ACCESS_KEY
     });
-
 
 
 router.get('/create', function (req, res, next) {
@@ -66,10 +67,10 @@ router.get('/create', function (req, res, next) {
 });
 router.get('/update', function (req, res, next) {
     Blog.aggregate([
-        {$sort:{date:-1}}
+        {$sort: {date: -1}}
     ]).exec(function (err, results) {
         if (err) {
-            return res.render('error', {error: err, message: err.message})
+            return res.render('error', {error: err, message: err.message});
         }
         results.forEach(function (item, index, array) {
 
@@ -93,7 +94,7 @@ router.get('/update/id/:id', function (req, res, next) {
             return console.log('an error has occurred' + err);
         }
         blog.date = moment(blog.date).format("dddd, MMMM Do YYYY");
-        res.render('update-blog', {blog: blog, user: req.user})
+        res.render('update-blog', {blog: blog, user: req.user});
     });
 });
 
@@ -114,12 +115,17 @@ router.post('/create', function (req, res) {
     newBlog.save(function (err, blog) {
         if (err) {
             res.send("Error saving blog: " + err.message);
-            return console.error(err.message);
         }
         else {
-            console.log(blog);
+            sitemap.createSitemapXML()
+                .then(response => {
+                    res.render("success", {message: 'successfully created: ' + blog.title});
+                })
+                .catch(err=>{
+                    res.render('success', {message:'Successfully created: '+blog.title+", but failed to generate sitemap."})
+                })
+            ;
 
-            res.render("success", {message: 'successfully created: ' + blog.title});
         }
 
     });
@@ -157,8 +163,6 @@ router.post('/update', function (req, res) {
 });
 
 
-
-
 router.post('/upload/image', function (req, res, next) {
     fs.readFile(req.files['images'].path, function (err, data) {
         var options = {partSize: 10 * 1024 * 1024, queueSize: 1};
@@ -167,7 +171,7 @@ router.post('/upload/image', function (req, res, next) {
         s3.upload(
             {
                 Bucket: process.env.S3_BUCKET_NAME,
-                Key: "images/"+req.files['images'].name,
+                Key: "images/" + req.files['images'].name,
                 Body: base64data,
                 ACL: 'public-read'
             },
@@ -175,7 +179,7 @@ router.post('/upload/image', function (req, res, next) {
             function (err, data) {
                 if (err) {
                     console.log(err);
-                    return res.send(err)
+                    return res.send(err);
                 }
                 console.log(data);
                 res.send(data);

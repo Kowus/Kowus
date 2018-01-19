@@ -17,7 +17,9 @@
                     <li><a href="/activities">Activities</a></li>
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/events">Events</a></li>
-                    <%= typeof user!='undefined' ? '<li><a href="/logout">Logout</a></li>' : '' %>
+                    <%= if (typeof user!='undefined') { %>
+                    <li><a href="/logout">Logout</a></li>
+                    <%}%>
                 </ul>
             </div>
         </div>
