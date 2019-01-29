@@ -11,6 +11,7 @@ router.get('/', function (req, res, next) {
         {$sort: {date: -1}}
     ]).exec(function (err, results) {
         if (err) {
+            console.error(err);
             return res.render('error', {error: err, message: err.message});
         }
         results.forEach(function (item, index, array) {
